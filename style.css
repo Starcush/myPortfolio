@@ -1,0 +1,17 @@
+nav {
+  margin: 10px;
+  padding: 10px;
+  /* background-color: coral; */
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.nav_list {
+  margin-left: 100px;
+}
+
+li  {
+  list-style: none;
+  display: inline;
+}
