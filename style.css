@@ -1,6 +1,6 @@
 nav {
-  margin: 10px;
-  padding: 10px;
+  /* margin: 10px;
+  padding: 10px; */
   /* background-color: coral; */
   display: flex;
   flex-flow: row wrap;
@@ -8,10 +8,59 @@ nav {
 }
 
 .nav_list {
-  margin-left: 100px;
+  /* margin-left: 100px; */
 }
 
-li  {
+.nav_list li  {
   list-style: none;
   display: inline;
+}
+
+#home {
+  background-color: #000000;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#home span a {
+  text-decoration: none;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 200px;
+  color: #FFFFFF;
+}
+
+#about-me a:hover {
+  color: red;
+}
+
+#intro {
+  display: flex;
+  
+}
+
+#intro ul li {
+  list-style: none;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+}
+
+.intro_list {
+  
+}
+
+#project a:hover {
+  color: blue;
+}
+
+#contacts a:hover {
+  color: green;
+}
+
+.contact li {
+  list-style: none;
 }
