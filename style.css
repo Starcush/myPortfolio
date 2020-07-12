@@ -1,7 +1,8 @@
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
 nav {
-  /* margin: 10px;
-  padding: 10px; */
-  /* background-color: coral; */
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -38,19 +39,55 @@ nav {
 }
 
 #intro {
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  
+  flex-direction: column;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
 }
 
 #intro ul li {
-  list-style: none;
-  display: inline-block;
-  width: 100px;
-  height: 100px;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 110 px;
+  margin-bottom: 20px;
 }
 
-.intro_list {
-  
+#intro .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 110px;
+  height: 30px;
+  border: 2px solid #000000;
+}
+
+#intro .title:hover {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+#intro .contents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+.intro_list_2{
+  margin-left: 15px;
+}
+
+.intro_list_3{
+  margin-left: 30px;
+}
+
+.intro_list_4{
+  margin-left: 45px;
 }
 
 #project a:hover {
