@@ -54,7 +54,7 @@ ul {
   display: flex;
   align-items: center;
   width: 100vw;
-  height: 110 px;
+  height: 110px;
   margin-bottom: 20px;
 }
 
@@ -62,14 +62,51 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 110px;
-  height: 30px;
-  border: 2px solid #000000;
+  width: 130px;
+  height: 90px;
+  font-weight: 900;
 }
 
-#intro .title:hover {
-  background-color: #000000;
-  color: #FFFFFF;
+#intro svg {
+  position: relative;
+  top: 0;
+  left: 0;
+  /* border: 2px solid #000000; */
+}
+
+#intro svg line {
+  stroke: #000000;
+  stroke-width: 2;
+  -webkit-transition: -webkit-transform .5s ease-out;
+	transition: transform .5s ease-out;
+}
+
+#intro svg line.top, line.bottom  {
+  stroke-dasharray: 60 130;
+}
+
+#intro svg line.left, line.right  {
+  stroke-dasharray: 30 70;
+}
+
+#intro .title:hover svg line.top {
+  -webkit-transform: translateX(-150px);
+  transform: translateX(-150px);
+}
+
+#intro .title:hover svg line.bottom {
+  -webkit-transform: translateX(125px);
+  transform: translateX(125px);
+}
+
+#intro .title:hover svg line.left {
+  -webkit-transform: translateY(40px);
+  transform: translateY(40px);
+}
+
+#intro .title:hover svg line.right {
+  -webkit-transform: translateY(-40px);
+  transform: translateY(-40px);
 }
 
 #intro .contents {
@@ -92,6 +129,49 @@ ul {
 
 #project a:hover {
   color: blue;
+}
+
+#test1 header {
+  height: 20vh;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#test1 header h1 {
+  display: block;
+  width: 120px;
+  height: 50px;
+  border-bottom: 2px solid #000000;
+}
+
+#test1 ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project_item {
+  display: inline-block;
+  width: 400px;
+  height: 250px;
+  background-color: burlywood;
+  border: 1px solid #000000;
+  margin: 0 10px;
+}
+
+.project_thumbnail {
+  width: 400px;
+  height: 250px;  
+}
+
+.project_title {
+  text-align: center;
+}
+
+.project_item:hover {
+  background-color: black;
 }
 
 #contacts a:hover {
