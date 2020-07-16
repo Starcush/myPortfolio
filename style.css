@@ -62,8 +62,8 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 130px;
-  height: 90px;
+  width: 110px;
+  height: 50px;
   font-weight: 900;
 }
 
@@ -82,31 +82,31 @@ ul {
 }
 
 #intro svg line.top, line.bottom  {
-  stroke-dasharray: 60 130;
+  stroke-dasharray: 50 110;
 }
 
 #intro svg line.left, line.right  {
-  stroke-dasharray: 30 70;
+  stroke-dasharray: 25 70;
 }
 
 #intro .title:hover svg line.top {
-  -webkit-transform: translateX(-150px);
-  transform: translateX(-150px);
+  -webkit-transform: translateX(-110px);
+  transform: translateX(-110px);
 }
 
 #intro .title:hover svg line.bottom {
-  -webkit-transform: translateX(125px);
-  transform: translateX(125px);
+  -webkit-transform: translateX(110px);
+  transform: translateX(110px);
 }
 
 #intro .title:hover svg line.left {
-  -webkit-transform: translateY(40px);
-  transform: translateY(40px);
+  -webkit-transform: translateY(25px);
+  transform: translateY(25px);
 }
 
 #intro .title:hover svg line.right {
-  -webkit-transform: translateY(-40px);
-  transform: translateY(-40px);
+  -webkit-transform: translateY(-25px);
+  transform: translateY(-25px);
 }
 
 #intro .contents {
