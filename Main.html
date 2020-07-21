@@ -3,54 +3,72 @@
   <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width">
-      <link rel="stylesheet" href="style.css">
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="style.css">
       <title>Portfolio</title>
   </head>
   <body>
     <main> <!-- 메인 페이지 -->
-      <div id="home">
-        <span id="about-me">
+      <div class="home">
+        <span class="about-me">
           <a href="./about_me.html">조</a>
         </span>
-        <span id="project">
+        <span class="project">
           <a href="./projects.html">준</a>
         </span>
-        <span id="contacts">
+        <span class="contacts">
           <a href="./contacts.html">현</a>
         </span>
       </div>
-      <div id="project">
+      <!-- <div id="project">
         <div></div>
         <div></div>
-      </div>
+      </div> -->
     </main>
     <nav> <!-- 메인 페이지 이외에서는 항상 보여지는 페이지 -->
-      <div id="logo">
-        <span>Cush</span>
-      </div>
-      
-      <div> 
-        <ul class="nav_list">
-          <li><a href="#">About Me</a></li>
-          <li><a href="#">Project</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
     </nav>
-    <div> <!-- 내 소개 -->
-
+    <div class="about">
+      <div class="intro intro1">
+        저는,
+      </div>
+      <ul class="list1">
+        <li class="item">
+          학교에서 <span>토목공학</span>을 전공했습니다.
+        </li>
+        <li class="item">
+          <span>외국어</span> 공부 하는 것을 좋아합니다.
+        </li>
+        <li class="item">
+          기록하는 것을 좋아해서 <span>다이어리</span>를 작성합니다.
+        </li>
+        <li class="item">
+          무엇이든 <span>배우는 것을 좋아합니다.</span>
+        </li>
+      </ul>
+      <div class="intro intro2">
+        그래서 저는,
+      </div>
+      <ul class="list2">
+        <li class="item">
+          <span>하고 싶은 것</span>이 있어서 프로그래밍을 배웠고,
+        </li>
+        <li class="item">
+          <span>일본어</span>와 <span>영어</span>로 이야기할 줄 압니다.
+        </li>
+        <li class="item">
+          문서화를 통해서 <span>기록하는 것을 좋아하고,</span>
+        </li>
+        <li class="item">
+          새로운 것을 배우는 것에 대해 <span>두려워 하지 않습니다.</span>
+        </li>
+      </ul>
     </div>
     <div> <!-- 프로젝트 -->
 
     </div>
     <footer> <!-- contanct(github, blog)-->
-      <ul class="contact">
-        <li>이메일</li>
-        <li>깃허브</li>
-        <li>블로그</li>
-      </ul>
     </footer>
   </body>
 </html>
