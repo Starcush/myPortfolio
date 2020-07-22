@@ -6,6 +6,14 @@
   color: #FFFFFF;
 }
 
+.black-text {
+  color: #000000;
+}
+
+.gray-text {
+  color: #BEBEBE;
+}
+
 nav {
   display: flex;
   flex-flow: row wrap;
@@ -25,10 +33,44 @@ main {
   background-color: #000000;
   width: 100vw;
   height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas: 
+    "intro intro intro"
+    " . main comments"
+    ". . ."
+  ;
+}
+
+.home-intro {
+  /* grid-column: 2 / span 1;
+  grid-row: 1 / span 1; */
+  grid-area: intro;
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
+  font-size: 45px;
+  font-weight: 900;
+}
+
+.home-main {
+  /* grid-column: 2 / span 1;
+  grid-row: 2 / span 1; */
+  grid-area: main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-comments {
+  /* grid-column: 3 / span 1;
+  grid-row: 2 / span 1; */
+  grid-area: comments;
+  position: relative;
+  font-size: 50px;
+  font-weight: 900;
+  top: 62%;
 }
 
 .home span a {
@@ -39,7 +81,24 @@ main {
 }
 
 .cho a:hover {
-  color: red;
+  color: #E53A40;
+}
+
+.jun a:hover {
+  color: #EFDC05;
+}
+
+.hyun a:hover {
+  color: #30A9DE;
+}
+
+.navigation {
+  width: 50px;
+  height: 50px;
+  background-color: aquamarine;
+  position: sticky;
+  top: 10px;
+  right: 10px;
 }
 
 .about {
@@ -88,15 +147,6 @@ ul {
   margin-bottom: 20px;
   font-weight: 500;
   font-size: 25px;
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.item span {
-  color: rgba(0, 0, 0, 1);
-}
-
-.jun a:hover {
-  color: blue;
 }
 
 .projects {
@@ -187,10 +237,63 @@ ul {
   background-color: black;
 }
 
-.hyun a:hover {
-  color: green;
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  /* display: flex; */
+  /* justify-content: center; */
+  background-color: #FFFFFF;
+  height: 50vh;
 }
 
-.contact li {
-  list-style: none;
+.head {
+  grid-column: 2 / span 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.middle {
+  grid-column: 2 / span 1;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 20px;
+}
+
+.tail {
+  grid-column: 2 / span 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.contact-list {
+  padding: 0;
+  margin: 0;
+  width: 200px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.txt li {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #000000;
+}
+
+.contact-comments {
+  display:flex;
+  /* align-items: flex-end; */
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.icon img{
+  height: 25px;
+  width: 25px;
 }

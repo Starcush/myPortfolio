@@ -6,62 +6,68 @@
       <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="style.css">
       <title>Portfolio</title>
   </head>
   <body>
     <main> <!-- 메인 페이지 -->
       <div class="home">
-        <span class="cho">
-          <a class="white-text" href="./about_me.html">조</a>
-        </span>
-        <span class="jun">
-          <a class="white-text" href="./projects.html">준</a>
-        </span>
-        <span class="hyun">
-          <a class="white-text" href="./contacts.html">현</a>
-        </span>
+        <div class="home-intro gray-text">
+          안녕하세요. 저는 삶을 편하게 하는 <span class="white-text">&nbsp;개발자</span>가 되고 싶은
+        </div>
+        <div class="home-main">
+          <span class="name cho">
+            <a class="white-text" href="./about_me.html">조</a>
+          </span>
+          <span class="name jun">
+            <a class="white-text" href="./projects.html">준</a>
+          </span>
+          <span class="name hyun">
+            <a class="white-text" href="./contacts.html">현</a>
+          </span>
+        </div>
+        <div class="home-comments gray-text">
+          입니다.
+        </div>
       </div>
-      <!-- <div id="project">
-        <div></div>
-        <div></div>
-      </div> -->
     </main>
-    <nav> <!-- 메인 페이지 이외에서는 항상 보여지는 페이지 -->
+    <nav class="navigation"> <!-- 메인 페이지 이외에서는 항상 보여지는 페이지 -->
+      홈
     </nav>
     <div class="about">
       <div class="intro-text intro1">
         저는,
       </div>
       <ul class="list1">
-        <li class="item">
-          학교에서 <span>토목공학</span>을 전공했습니다.
+        <li class="item gray-text">
+          학교에서 <span class="black-text">토목공학</span>을 전공했습니다.
         </li>
-        <li class="item">
-          <span>외국어</span> 공부 하는 것을 좋아합니다.
+        <li class="item gray-text">
+          <span class="black-text">외국어</span> 공부 하는 것을 좋아합니다.
         </li>
-        <li class="item">
-          기록하는 것을 좋아해서 <span>다이어리</span>를 작성합니다.
+        <li class="item gray-text">
+          기록하는 것을 좋아해서 <span class="black-text">다이어리</span>를 작성합니다.
         </li>
-        <li class="item">
-          무엇이든 <span>배우는 것을 좋아합니다.</span>
+        <li class="item gray-text">
+          무엇이든 <span class="black-text">배우는 것을 좋아합니다.</span>
         </li>
       </ul>
       <div class="intro-text intro2">
         그래서 저는,
       </div>
       <ul class="list2">
-        <li class="item">
-          <span>하고 싶은 것</span>이 있어서 프로그래밍을 배웠고,
+        <li class="item gray-text">
+          <span class="black-text">하고 싶은 것</span>이 있어서 프로그래밍을 배웠고,
         </li>
-        <li class="item">
-          <span>일본어</span>와 <span>영어</span>로 이야기할 줄 압니다.
+        <li class="item gray-text">
+          <span class="black-text">일본어</span>와 <span class="black-text">영어</span>로 이야기할 줄 압니다.
         </li>
-        <li class="item">
-          문서화를 통해서 <span>기록하는 것을 좋아하고,</span>
+        <li class="item gray-text">
+          문서화를 통해서 <span class="black-text">기록하는 것을 좋아하고,</span>
         </li>
-        <li class="item">
-          새로운 것을 배우는 것에 대해 <span>두려워 하지 않습니다.</span>
+        <li class="item gray-text">
+          새로운 것을 배우는 것에 대해 <span class="black-text">두려워 하지 않습니다.</span>
         </li>
       </ul>
     </div>
@@ -75,9 +81,6 @@
             <div class="thumbnail modurun">
               모두런
             </div>
-            <div class="newThumbnail">
-              새로운 것
-            </div>
             <div class="detail">
               달리고 싶은 사람들을 위해 트랙을 만들어 주고<br/>
               모임을 만들어 주는 안드로이드 앱
@@ -86,9 +89,6 @@
           <li class="project-items">
             <div class="thumbnail zeroto66">
               Zeroto66
-            </div>
-            <div class="newThumbnail">
-              새로운 것
             </div>
             <div class="detail">
               습관을 관리해주는 웹 어플리케이션
@@ -99,7 +99,31 @@
       <div class="intro-text project project-finish white-text">
         이러한 프로젝트를 했습니다.
       </div>
-    <footer> <!-- contanct(github, blog)-->
+    </div>  
+    <footer class="contact">
+      <div class="contact-comments head">
+        저와 관련된 내용들은
+      </div>
+      <div class="middle">
+        <ul class="contact-list icon">
+          <li>
+            <img src="./assets/GitHub-Mark-120px-plus.png"> 
+          </li>
+          <li>
+            <img src="./assets/email.png"> 
+          </li>
+          <li>
+            <img src="./assets/resume.png"> 
+          </li>
+        </ul>
+      </div>
+      <div class="tail">
+        <ul class="contact-list txt">
+          <li>
+            Blog
+          </li>
+        </ul>
+      </div>
     </footer>
   </body>
 </html>
