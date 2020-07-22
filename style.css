@@ -2,6 +2,10 @@
   font-family: 'Noto Sans KR', sans-serif;
 }
 
+.white-text {
+  color: #FFFFFF;
+}
+
 nav {
   display: flex;
   flex-flow: row wrap;
@@ -11,6 +15,10 @@ nav {
 .nav_list li  {
   list-style: none;
   display: inline;
+}
+
+main {
+  display: flex;
 }
 
 .home {
@@ -28,10 +36,9 @@ nav {
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 900;
   font-size: 200px;
-  color: #FFFFFF;
 }
 
-.about-me a:hover {
+.cho a:hover {
   color: red;
 }
 
@@ -68,7 +75,7 @@ ul {
   grid-row: 4/ span 1;
 }
 
-.intro {
+.intro-text {
   display: flex;
   align-items: flex-end;
   font-family: 'Noto Sans KR', sans-serif;
@@ -88,43 +95,88 @@ ul {
   color: rgba(0, 0, 0, 1);
 }
 
-.project a:hover {
+.jun a:hover {
   color: blue;
 }
 
-#test1 header {
-  height: 20vh;
-  /* text-align: center; */
+.projects {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 10fr 1fr;
+  grid-template-rows: 1fr 3fr 1fr;
+  background-color: #000000;
+  margin: 0;
+}
+
+.project {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 40px;
 }
 
-#test1 header h1 {
-  display: block;
-  width: 120px;
-  height: 50px;
-  border-bottom: 2px solid #000000;
+.project-intro {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
 }
 
-#test1 ul {
+.project-main {
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 1;
+}
+
+.project-main ul{
   display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 40px;
+  margin: 0;
+  border-radius: 10px;
+  background-color: #FFFFFF;
 }
 
-.project_item {
-  display: inline-block;
+.project-finish {
+  grid-column: 2 / span 1;
+  grid-row: 3 / span 1;
+}
+
+.project-items {
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  /* grid-template-columns: 1fr 1fr; */
+  font-size: 60px;
+  font-weight: 900;
+  /* width: 400px; */
+}
+
+.thumbnail {
   width: 400px;
   height: 250px;
-  background-color: burlywood;
-  border: 1px solid #000000;
-  margin: 0 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .2s ease-in-out;
 }
 
-.project_thumbnail {
-  width: 400px;
-  height: 250px;  
+.thumbnail:hover {
+  transform: scale(0.9);
+}
+
+.modurun {
+  background-color: rgba(30,144,255, 0.5);
+  color: #1E90FF;
+}
+
+.zeroto66 {
+  background-color: rgba(144,85,162, 0.5);
+  color: #9055A2;
+}
+
+.detail {
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  /* padding-left: 10px; */
+  margin-top: 5px;
 }
 
 .project_title {
@@ -135,7 +187,7 @@ ul {
   background-color: black;
 }
 
-.contacts a:hover {
+.hyun a:hover {
   color: green;
 }
 
