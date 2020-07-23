@@ -12,30 +12,33 @@
   </head>
   <body>
     <main> <!-- 메인 페이지 -->
-      <div class="home">
+      <div id="home">
         <div class="home-intro gray-text">
-          안녕하세요. 저는 삶을 편하게 하는 <span class="white-text">&nbsp;개발자</span>가 되고 싶은
+          안녕하세요. 저는 삶을 편하게 하는 <span class="white-text point">&nbsp;개발자</span>가 되고 싶은
+        </div>
+        <div class="home-comments prefix gray-text">
+          
         </div>
         <div class="home-main">
-          <span class="name cho">
-            <a class="white-text" href="./about_me.html">조</a>
+          <span class="name">
+            <a class="white-text cho" href="#about">조</a>
           </span>
-          <span class="name jun">
-            <a class="white-text" href="./projects.html">준</a>
+          <span class="name">
+            <a class="white-text jun" href="#projects">준</a>
           </span>
-          <span class="name hyun">
-            <a class="white-text" href="./contacts.html">현</a>
+          <span class="name">
+            <a class="white-text hyun" href="#contact">현</a>
           </span>
         </div>
-        <div class="home-comments gray-text">
+        <div class="home-comments suffix gray-text">
           입니다.
         </div>
       </div>
     </main>
     <nav class="navigation"> <!-- 메인 페이지 이외에서는 항상 보여지는 페이지 -->
-      홈
+      <a href="#home">홈</a>
     </nav>
-    <div class="about">
+    <div id="about">
       <div class="intro-text intro1">
         저는,
       </div>
@@ -71,7 +74,7 @@
         </li>
       </ul>
     </div>
-    <div class="projects"> <!-- 프로젝트 -->
+    <div id="projects"> <!-- 프로젝트 -->
       <div class="intro-text project project-intro white-text">
         저는 지금까지
       </div>
@@ -100,7 +103,7 @@
         이러한 프로젝트를 했습니다.
       </div>
     </div>  
-    <footer class="contact">
+    <footer id="contact">
       <div class="contact-comments head">
         저와 관련된 내용들은
       </div>
@@ -125,5 +128,7 @@
         </ul>
       </div>
     </footer>
+
+    <script type="text/javascript" src="main.js"></script>
   </body>
 </html>

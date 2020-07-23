@@ -2,6 +2,10 @@
   font-family: 'Noto Sans KR', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .white-text {
   color: #FFFFFF;
 }
@@ -29,7 +33,7 @@ main {
   display: flex;
 }
 
-.home {
+#home {
   background-color: #000000;
   width: 100vw;
   height: 100vh;
@@ -38,7 +42,7 @@ main {
   grid-template-rows: repeat(3, 1fr);
   grid-template-areas: 
     "intro intro intro"
-    " . main comments"
+    "pre main suf"
     ". . ."
   ;
 }
@@ -66,29 +70,39 @@ main {
 .home-comments {
   /* grid-column: 3 / span 1;
   grid-row: 2 / span 1; */
-  grid-area: comments;
+  /* grid-area: comments; */
   position: relative;
   font-size: 50px;
   font-weight: 900;
   top: 62%;
 }
 
-.home span a {
+.prefix {
+  grid-area: pre;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.suffix {
+  grid-area: suf;
+}
+
+#home span a {
   text-decoration: none;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 900;
   font-size: 200px;
 }
 
-.cho a:hover {
+.cho:hover {
   color: #E53A40;
 }
 
-.jun a:hover {
+.jun:hover {
   color: #EFDC05;
 }
 
-.hyun a:hover {
+.hyun:hover {
   color: #30A9DE;
 }
 
@@ -101,7 +115,7 @@ main {
   right: 10px;
 }
 
-.about {
+#about {
   display: grid;
   padding: 10px;
   grid-template-columns: 1fr 10fr 1fr;
@@ -149,7 +163,7 @@ ul {
   font-size: 25px;
 }
 
-.projects {
+#projects {
   display: grid;
   height: 100vh;
   grid-template-columns: 1fr 10fr 1fr;
@@ -237,7 +251,7 @@ ul {
   background-color: black;
 }
 
-.contact {
+#contact {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
