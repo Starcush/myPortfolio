@@ -18,15 +18,42 @@ html {
   color: #BEBEBE;
 }
 
-nav {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+a {
+  text-decoration: none;
+  color: inherit; 
 }
 
-.nav_list li  {
+.navigation {
+  position: sticky;
+  top: 10px;
+  right: 10px;
+}
+
+.navigation ul {
   list-style: none;
-  display: inline;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navigation ul li {
+  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 50px;
+  height: 40px;
+  /* background-color: #FFFFFF; */
+}
+
+.nav-list {
+  color: #A9A9A9;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.navigation ul li a:hover {
+  color: #E53A40;
 }
 
 main {
@@ -48,8 +75,6 @@ main {
 }
 
 .home-intro {
-  /* grid-column: 2 / span 1;
-  grid-row: 1 / span 1; */
   grid-area: intro;
   display: flex;
   justify-content: center;
@@ -59,8 +84,6 @@ main {
 }
 
 .home-main {
-  /* grid-column: 2 / span 1;
-  grid-row: 2 / span 1; */
   grid-area: main;
   display: flex;
   justify-content: center;
@@ -68,9 +91,6 @@ main {
 }
 
 .home-comments {
-  /* grid-column: 3 / span 1;
-  grid-row: 2 / span 1; */
-  /* grid-area: comments; */
   position: relative;
   font-size: 50px;
   font-weight: 900;
@@ -88,7 +108,6 @@ main {
 }
 
 #home span a {
-  text-decoration: none;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 900;
   font-size: 200px;
@@ -104,15 +123,6 @@ main {
 
 .hyun:hover {
   color: #30A9DE;
-}
-
-.navigation {
-  width: 50px;
-  height: 50px;
-  background-color: aquamarine;
-  position: sticky;
-  top: 10px;
-  right: 10px;
 }
 
 #about {
@@ -168,7 +178,7 @@ ul {
   height: 100vh;
   grid-template-columns: 1fr 10fr 1fr;
   grid-template-rows: 1fr 3fr 1fr;
-  background-color: #000000;
+  background-color: #FFFFFF;
   margin: 0;
 }
 
@@ -205,10 +215,8 @@ ul {
 .project-items {
   display: grid;
   grid-template-rows: 2fr 1fr;
-  /* grid-template-columns: 1fr 1fr; */
   font-size: 60px;
   font-weight: 900;
-  /* width: 400px; */
 }
 
 .thumbnail {
@@ -239,7 +247,6 @@ ul {
   font-size: 18px;
   font-weight: 400;
   text-align: center;
-  /* padding-left: 10px; */
   margin-top: 5px;
 }
 
@@ -255,8 +262,6 @@ ul {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  /* display: flex; */
-  /* justify-content: center; */
   background-color: #FFFFFF;
   height: 50vh;
 }
@@ -302,7 +307,6 @@ ul {
 
 .contact-comments {
   display:flex;
-  /* align-items: flex-end; */
   font-weight: 600;
   font-size: 30px;
 }
