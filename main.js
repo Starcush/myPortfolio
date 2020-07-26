@@ -1,57 +1,76 @@
 const prefix = document.querySelector('.prefix');
 const suffix = document.querySelector('.suffix');
-// const point = document.querySelector('.point');
-const homeIntro = document.querySelector('.home-intro');
+const home_intro = document.querySelector('.home-intro');
 
-const makeReg = (str) => {
-  return new RegExp(str, 'g');
+// 처음에는 home-intro의 투명도가 1 이다
+let intro_opacity = 1; 
+
+const findClassName = (object, target) => {
+  const reg = new RegExp(target, 'g');
+  if(reg.test(object)) return true;
+  return false;
+}
+
+// fadeout fadein이 동시에 일어날 때
+// fadeout fadein이 다른 점이 매우 적다. 이걸 줄여보자.
+let fadeIn = (targetEl, opacity) => {
+  let rafId;
+  let animation = () => {
+    if(opacity < 1) {
+      opacity += 0.05;
+      targetEl.style.opacity = opacity;
+      intro_opacity = opacity;
+      rafId = requestAnimationFrame(animation);
+    } 
+  }
+  requestAnimationFrame(animation);
+  cancelAnimationFrame(rafId);
+}
+
+// 매개변수로 받는 값들에 따라서 fadein, fadeout 되는게 달라지게 하고 싶다.
+let fadeOut = (targetEl, opacity) => {
+  // 지금은 timestamp와의 연관성이 아니라 그냥 숫자로 하고 있는데
+  // 관련해서 작동하도록 생각해보자.
+  let rafId;
+  let animation = () => {
+    if(opacity > 0) {
+      opacity -= 0.05;
+      targetEl.style.opacity = opacity;
+      intro_opacity = opacity;
+      rafId = requestAnimationFrame(animation);
+    }
+  }
+  requestAnimationFrame(animation);
+  cancelAnimationFrame(rafId);
 }
 
 let mouseoverFunc = (event) => { // 마우스를 가져다 대면 메인화면 글의 내용이 바뀌도록
   // 정규표현식을 사용해서 원하는 className이 있는지 확인하는 걸 작성하자.
   const cName = event.target.className;
-  // window.scrollTo(0, 1000);
-
-  const regObj = {
-    cho: makeReg('cho'),
-    jun: makeReg('jun'),
-    hyun: makeReg('hyun'),
-  };
-    
-  if (regObj.cho.test(cName)) {
+  
+  if (findClassName(cName, 'cho')) {
+    prefix.textContent = '';
     suffix.textContent = '은?';
-    // point.style.color = '#E53A40';
-  } else if (regObj.jun.test(cName)) {
+  } else if (findClassName(cName, 'jun')) {
     prefix.textContent = '지금까지'
     suffix.textContent = '이 한 것들';
-    // point.style.color = '#EFDC05';
-  } else {
+  } else if (findClassName(cName, 'hyun')){
+    console.log(prefix.textContent);
+    prefix.textContent = '';
     suffix.textContent = '과 연락은';
-    // point.style.color = '#30A9DE';
+  } else {
+    prefix.textContent = '';
+    suffix.textContent = '입니다.';
   }
-
-  homeIntro.style.opacity = 0;
-}
-
-let mouseoutFunc = () => {
-  prefix.textContent = '';
-  suffix.textContent = '입니다.';
-  // point.style.color = '#FFFFFF';
-  homeIntro.style.opacity = 1;
-}
-
-const mouseEvents = {
-  mouseover: mouseoverFunc,
-  mouseout: mouseoutFunc,
-}
-
-let names = Array.from(document.getElementsByClassName("name")); // 정확히는 배열이 아니다. 그래서 배열로 만들어줌
-
-names.forEach((el) => { // 여러 이벤트 추가
-  for(let key in mouseEvents) {
-    el.addEventListener(key, mouseEvents[key]);
+  
+  if(findClassName(cName, 'name')) {
+    fadeOut(home_intro, intro_opacity);
+  } else {
+    fadeIn(home_intro, intro_opacity);
   }
-});
+}
+
+document.querySelector('#home').addEventListener('mouseover', mouseoverFunc);
 
 let projectBackground = (progress) => {
   let projectsSection = document.getElementById("projects"); 

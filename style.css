@@ -75,6 +75,7 @@ main {
 }
 
 .home-intro {
+  opacity: 1;
   grid-area: intro;
   display: flex;
   justify-content: center;
@@ -111,6 +112,10 @@ main {
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 900;
   font-size: 200px;
+}
+
+.name:hover {
+  transition: color 0.2s linear;
 }
 
 .cho:hover {
