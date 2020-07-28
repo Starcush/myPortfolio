@@ -11,40 +11,20 @@ const findClassName = (object, target) => {
   return false;
 }
 
-// fadeout fadein이 동시에 일어날 때
-// fadeout fadein이 다른 점이 매우 적다. 이걸 줄여보자.
-let fadeIn = (targetEl, opacity) => {
-  let rafId;
-  let animation = () => {
-    if(opacity < 1) {
-      opacity += 0.05;
-      targetEl.style.opacity = opacity;
-      intro_opacity = opacity;
-      rafId = requestAnimationFrame(animation);
-    } 
-  }
-  requestAnimationFrame(animation);
-  cancelAnimationFrame(rafId);
+const makingElements = (...props) => {
+  return props.map((el) => {
+    return document.createElement(el);
+  });
 }
 
-// 매개변수로 받는 값들에 따라서 fadein, fadeout 되는게 달라지게 하고 싶다.
-let fadeOut = (targetEl, opacity) => {
-  // 지금은 timestamp와의 연관성이 아니라 그냥 숫자로 하고 있는데
-  // 관련해서 작동하도록 생각해보자.
-  let rafId;
-  let animation = () => {
-    if(opacity > 0) {
-      opacity -= 0.05;
-      targetEl.style.opacity = opacity;
-      intro_opacity = opacity;
-      rafId = requestAnimationFrame(animation);
-    }
-  }
-  requestAnimationFrame(animation);
-  cancelAnimationFrame(rafId);
+const appendManyChilds = (parent, ...childs) => {
+  childs.forEach((el) => {
+    parent.appendChild(el);
+  });
 }
 
-let mouseoverFunc = (event) => { // 마우스를 가져다 대면 메인화면 글의 내용이 바뀌도록
+// main section에서 발생하는 animation
+let mainMouseover = (event) => { // 마우스를 가져다 대면 메인화면 글의 내용이 바뀌도록
   // 정규표현식을 사용해서 원하는 className이 있는지 확인하는 걸 작성하자.
   const cName = event.target.className;
   
@@ -68,25 +48,44 @@ let mouseoverFunc = (event) => { // 마우스를 가져다 대면 메인화면 �
   } else {
     fadeIn(home_intro, intro_opacity);
   }
+
 }
 
-document.querySelector('#home').addEventListener('mouseover', mouseoverFunc);
+let mainMouseout = () => {
+  prefixSection.addClass('fade-out');
+  prefixSection.removeClass('fade-in');
+}
 
-let projectBackground = (progress) => {
-  let projectsSection = document.getElementById("projects"); 
-  if(progress > 56 && progress < 62) {
-    projectsSection.style.backgroundColor = '#000000';
-  } else {
-    projectsSection.style.backgroundColor = '#FFFFFF';
+document.getElementById('home').addEventListener('mouseover', mainMouseover);
+document.querySelector('.jun').addEventListener('mouseout', mainMouseout);
+
+// about-me, project에서 발생하는 animation
+const bodyAnimation = (progress) => {
+  if (progress > 10 && !showList1) { // 나에 대한 소개 두 번째 class = list1
+    list1Section.addClass('fade-in');
+  } else if(progress < 9){
+    list1Section.removeClass('fade-in');
   }
+
+  if (progress > 20 && !showList2) { // 나에 대한 소개 두 번째 class = list2
+    list2Section.addClass('fade-in');
+  } else if(progress < 20){
+    list2Section.removeClass('fade-in');
+  }
+
+// let projectBackground = (progress) => {
+//   let projectsSection = document.getElementById("projects"); 
+//   if(progress > 56 && progress < 62) {
+//     projectsSection.style.backgroundColor = '#000000';
+//   } else {
+//     projectsSection.style.backgroundColor = '#FFFFFF';
+//   }
 }
 
-let last_known_scroll_position = 0;
 let ticking = false;
 
 window.addEventListener("scroll", function() {
-  last_known_scroll_position = window.scrollY;
-  progress = (window.pageYOffset / document.body.offsetHeight) * 100;
+  let progress = (window.pageYOffset / document.body.offsetHeight) * 100;
 
   if (!ticking) {
     window.requestAnimationFrame(function() {
@@ -96,3 +95,72 @@ window.addEventListener("scroll", function() {
     ticking = true;
   }
 });
+
+// project의 thumbnail animation
+
+let projectsMouseover = (event) => {
+  const cName = event.target.className
+  
+  if(findClassName(cName, 'modurun')) {
+    const [containerDiv, iconsDiv, githubLink, notionLink, githubIcon, notionIcon] = makingElements('div', 'div', 'a', 'a', 'img', 'img');
+    
+    const containerStyle = 'display: grid; grid-template-rows: 1fr 1fr; font-size: 30px; color: white';
+    const iconsDivStyle = 'display: flex; justify-content: center; align-items: center; ';
+    const iconsStyle = 'width: 35x; height: 35px';
+
+    containerDiv.classList.add('fade-in');
+
+    containerDiv.style.cssText = containerStyle;
+    iconsDiv.style.cssText = iconsDivStyle;
+    githubIcon.style.cssText = iconsStyle;
+    notionIcon.style.cssText = iconsStyle;
+    
+    githubLink.setAttribute('href', 'https://github.com/Starcush/client_modurun');
+    githubIcon.setAttribute('src', './assets/GitHub-Mark-120px-plus.png');
+    githubLink.appendChild(githubIcon);
+    
+    notionLink.setAttribute('href', 'https://www.notion.so/wagucus198/Modurun-bd38e14979464ca68be353b60cf26a44');
+    notionIcon.setAttribute('src', './assets/Notion_app_logo.png');
+    notionLink.appendChild(notionIcon);
+
+    appendManyChilds(iconsDiv, githubLink, notionLink);
+
+    const text = document.createTextNode("JS, React, React Native");
+
+    containerDiv.appendChild(text);
+    containerDiv.appendChild(iconsDiv);
+    /*
+      <div> style=> display: grid; grid-template-rows: 1fr 1fr; font-size: 30px; color: white;
+        <div /> : 사용 언어 style=> display: flex; justify-content: center; align-items: center;
+        <div /> 
+      </div>
+    */
+    const divSection = new DOMAnimation(containerDiv);
+
+    divSection.addClass('thumbnail', 'fade-in', 'newDiv');
+    document.querySelector('.modurun').appendChild(containerDiv);
+    document.querySelector('.modurun-thumbnail').style.display = 'none';
+  }   
+}
+
+let projectsMouseout = (event) => {
+  if(document.querySelector('.thumbnail') !== event.target) {
+    return;
+  }
+  const cName = event.target.className
+
+  if(findClassName(cName, 'modurun')) {
+    document.querySelector('.modurun-thumbnail').textContent = "모두런";
+    document.querySelector('.modurun-thumbnail').style.display = 'flex';
+    // document.querySelector('.modurun-thumbnail').classList.add('fade-in');
+    document.querySelector('.newDiv').remove();
+    
+    
+    // document.querySelector('.modurun').textContent = '모두런';
+  }
+}
+
+document.querySelector('.thumbnail').addEventListener('mouseenter', projectsMouseover, true);
+// document.querySelector('.thumbnail').removeEventListener('mouseout', projectsMouseout);
+// document.querySelector('.thumbnail').removeEventListener('mouseover', projectsMouseover);
+document.querySelector('.thumbnail').addEventListener('mouseleave', projectsMouseout, true);
