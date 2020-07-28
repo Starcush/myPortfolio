@@ -1,9 +1,27 @@
-const prefix = document.querySelector('.prefix');
-const suffix = document.querySelector('.suffix');
-const home_intro = document.querySelector('.home-intro');
+import { DOMAnimation } from './animation.js';
 
-// 처음에는 home-intro의 투명도가 1 이다
-let intro_opacity = 1; 
+const prefixNode = document.querySelector('.prefix');
+const basicNode = document.querySelector('.basic');
+const cmmnt1Node = document.querySelector('.comments1');
+const cmmnt2Node = document.querySelector('.comments2');
+const cmmnt3Node = document.querySelector('.comments3');
+const homeIntroNode = document.querySelector('.home-intro');
+const projectsNode = document.getElementById("projects"); 
+const list1Node = document.querySelector('.list1');
+const list2Node = document.querySelector('.list2');
+
+const introSection = new DOMAnimation(homeIntroNode);
+const prefixSection = new DOMAnimation(prefixNode);
+const cmmnt1Section = new DOMAnimation(cmmnt1Node);
+const cmmnt2Section = new DOMAnimation(cmmnt2Node);
+const cmmnt3Section = new DOMAnimation(cmmnt3Node);
+const list1Section = new DOMAnimation(list1Node);
+const list2Section = new DOMAnimation(list2Node);
+const basicSection = new DOMAnimation(basicNode);
+const projectsSection = new DOMAnimation(projectsNode);
+
+let showList1 = false;
+let showList2 = false;
 
 const findClassName = (object, target) => {
   const reg = new RegExp(target, 'g');
@@ -25,41 +43,54 @@ const appendManyChilds = (parent, ...childs) => {
 
 // main section에서 발생하는 animation
 let mainMouseover = (event) => { // 마우스를 가져다 대면 메인화면 글의 내용이 바뀌도록
+
   // 정규표현식을 사용해서 원하는 className이 있는지 확인하는 걸 작성하자.
   const cName = event.target.className;
-  
-  if (findClassName(cName, 'cho')) {
-    prefix.textContent = '';
-    suffix.textContent = '은?';
-  } else if (findClassName(cName, 'jun')) {
-    prefix.textContent = '지금까지'
-    suffix.textContent = '이 한 것들';
-  } else if (findClassName(cName, 'hyun')){
-    console.log(prefix.textContent);
-    prefix.textContent = '';
-    suffix.textContent = '과 연락은';
-  } else {
-    prefix.textContent = '';
-    suffix.textContent = '입니다.';
-  }
-  
+
   if(findClassName(cName, 'name')) {
-    fadeOut(home_intro, intro_opacity);
+    introSection.fadeout();
+    basicSection.addClass('hide')
+    basicSection.removeClass('show');
+
+    if (findClassName(cName, 'cho')) {
+      cmmnt1Section.addClass('show', 'fade-in');
+      cmmnt2Section.removeClass('show');
+      cmmnt3Section.removeClass('show');
+
+    } else if (findClassName(cName, 'jun')) {
+      prefixSection.addClass('fade-in');
+      prefixSection.removeClass('fade-out');
+      cmmnt2Section.addClass('show', 'fade-in');
+      
+      cmmnt1Section.removeClass('show');
+      cmmnt3Section.removeClass('show');
+
+    } else if (findClassName(cName, 'hyun')){
+      cmmnt3Section.addClass('show', 'fade-in');
+      cmmnt1Section.removeClass('show');
+      cmmnt2Section.removeClass('show');
+    
+    }
+
   } else {
-    fadeIn(home_intro, intro_opacity);
+    introSection.fadein();
+    basicSection.addClass('show', 'fade-in');
+    cmmnt1Section.removeClass('show');
+    cmmnt2Section.removeClass('show');
+    cmmnt3Section.removeClass('show');
   }
 
 }
 
-let mainMouseout = () => {
+let mouseoutFunc = () => {
   prefixSection.addClass('fade-out');
   prefixSection.removeClass('fade-in');
 }
 
-document.getElementById('home').addEventListener('mouseover', mainMouseover);
-document.querySelector('.jun').addEventListener('mouseout', mainMouseout);
+document.getElementById('home').addEventListener('mouseover', mouseoverFunc);
+document.querySelector('.jun').addEventListener('mouseout', mouseoutFunc);
 
-// about-me, project에서 발생하는 animation
+
 const bodyAnimation = (progress) => {
   if (progress > 10 && !showList1) { // 나에 대한 소개 두 번째 class = list1
     list1Section.addClass('fade-in');
@@ -73,14 +104,22 @@ const bodyAnimation = (progress) => {
     list2Section.removeClass('fade-in');
   }
 
-// let projectBackground = (progress) => {
-//   let projectsSection = document.getElementById("projects"); 
-//   if(progress > 56 && progress < 62) {
-//     projectsSection.style.backgroundColor = '#000000';
-//   } else {
-//     projectsSection.style.backgroundColor = '#FFFFFF';
-//   }
+  if(progress > 56 && progress < 62) {
+    projectsSection.addClass('black-background');
+    projectsSection.removeClass('white-background');
+  } else {
+    projectsSection.addClass('white-background');
+    projectsSection.removeClass('black-background');
+  }
 }
+
+let mainMouseout = () => {
+  prefixSection.addClass('fade-out');
+  prefixSection.removeClass('fade-in');
+}
+
+document.getElementById('home').addEventListener('mouseover', mainMouseover);
+document.querySelector('.jun').addEventListener('mouseout', mainMouseout);
 
 let ticking = false;
 
@@ -89,7 +128,7 @@ window.addEventListener("scroll", function() {
 
   if (!ticking) {
     window.requestAnimationFrame(function() {
-      projectBackground(progress);
+      bodyAnimation(progress);
       ticking = false;
     });
     ticking = true;

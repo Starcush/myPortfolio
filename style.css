@@ -102,10 +102,20 @@ main {
   grid-area: pre;
   display: flex;
   justify-content: flex-end;
+  opacity: 0;
 }
 
 .suffix {
   grid-area: suf;
+}
+
+/* .basic {
+  
+} */
+
+.comments {
+  display: none;
+  opacity: 0;
 }
 
 #home span a {
@@ -151,6 +161,7 @@ ul {
 .list1 {
   grid-column: 2 / span 1;
   grid-row: 2/ span 1;
+  opacity: 0;
 }
 
 .intro2 {
@@ -161,6 +172,7 @@ ul {
 .list2 {
   grid-column: 2 / span 1;
   grid-row: 4/ span 1;
+  opacity: 0;
 }
 
 .intro-text {
@@ -183,7 +195,7 @@ ul {
   height: 100vh;
   grid-template-columns: 1fr 10fr 1fr;
   grid-template-rows: 1fr 3fr 1fr;
-  background-color: #FFFFFF;
+  background-color: #000000;
   margin: 0;
 }
 
@@ -429,6 +441,7 @@ ul {
   to {
     background-color: #000000;
   }
+
 }
 
 .zoomin:hover {
