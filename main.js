@@ -87,7 +87,7 @@ let mouseoutFunc = () => {
   prefixSection.removeClass('fade-in');
 }
 
-document.getElementById('home').addEventListener('mouseover', mouseoverFunc);
+document.getElementById('home').addEventListener('mouseover', mainMouseover);
 document.querySelector('.jun').addEventListener('mouseout', mouseoutFunc);
 
 
