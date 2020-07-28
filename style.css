@@ -75,6 +75,7 @@ main {
 }
 
 .home-intro {
+  opacity: 1;
   grid-area: intro;
   display: flex;
   justify-content: center;
@@ -121,6 +122,10 @@ main {
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 900;
   font-size: 200px;
+}
+
+.name:hover {
+  transition: color 0.2s linear;
 }
 
 .cho:hover {
@@ -227,11 +232,16 @@ ul {
 .project-items {
   display: grid;
   grid-template-rows: 2fr 1fr;
+  grid-template-areas: 
+    "thumbnail"
+    "detail"
+  ;
   font-size: 60px;
   font-weight: 900;
 }
 
 .thumbnail {
+  grid-area: thumbnail;
   width: 400px;
   height: 250px;
   border-radius: 10px;
@@ -256,6 +266,7 @@ ul {
 }
 
 .detail {
+  grid-area: detail;
   font-size: 18px;
   font-weight: 400;
   text-align: center;
@@ -323,7 +334,7 @@ ul {
   font-size: 30px;
 }
 
-.icon img{
+.icon {
   height: 25px;
   width: 25px;
 }
@@ -430,4 +441,9 @@ ul {
   to {
     background-color: #000000;
   }
+
+}
+
+.zoomin:hover {
+  transition: scale(1.1);
 }
