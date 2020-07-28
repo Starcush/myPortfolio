@@ -220,11 +220,16 @@ ul {
 .project-items {
   display: grid;
   grid-template-rows: 2fr 1fr;
+  grid-template-areas: 
+    "thumbnail"
+    "detail"
+  ;
   font-size: 60px;
   font-weight: 900;
 }
 
 .thumbnail {
+  grid-area: thumbnail;
   width: 400px;
   height: 250px;
   border-radius: 10px;
@@ -249,6 +254,7 @@ ul {
 }
 
 .detail {
+  grid-area: detail;
   font-size: 18px;
   font-weight: 400;
   text-align: center;
@@ -316,7 +322,115 @@ ul {
   font-size: 30px;
 }
 
-.icon img{
+.icon {
   height: 25px;
   width: 25px;
+}
+
+.fade-in {
+  animation: fadein 0.6s ease-in forwards;
+  -webkit-animation: fadein 0.6s ease-in forwards;
+}
+
+.fade-out {
+  animation: fadeout 0.3s linear forwards;
+  -webkit-animation: fadeout 0.3s linear forwards;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: inline;
+}
+
+.white-background {
+  animation: towhite 0.4s ease-out forwards;
+  -webkit-animation: towhite 0.4s ease-out forwards;
+}
+
+@keyframes towhite {
+  from {
+    background-color: #000000;
+  }
+
+  to {
+    background-color: #FFFFFF;
+  }
+}
+
+@-webkit-keyframes towhite {
+  from {
+    background-color: #000000;
+  }
+
+  to {
+    background-color: #FFFFFF;
+  }
+}
+
+.black-background {
+  animation: toblack 0.4s ease-out forwards;
+  -webkit-animation: toblack 0.4s ease-out forwards;
+}
+
+@keyframes toblack {
+  from {
+    background-color: #FFFFFF;
+  }
+
+  to {
+    background-color: #000000;
+  }
+}
+
+@-webkit-keyframes toblack {
+  from {
+    background-color: #FFFFFF;
+  }
+
+  to {
+    background-color: #000000;
+  }
+}
+
+.zoomin:hover {
+  transition: scale(1.1);
 }
