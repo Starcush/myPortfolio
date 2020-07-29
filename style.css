@@ -1,3 +1,8 @@
+/* 
+  ==========================================
+  common
+  ========================================== 
+*/
 * {
   font-family: 'Noto Sans KR', sans-serif;
 }
@@ -23,6 +28,12 @@ a {
   color: inherit; 
 }
 
+/* 
+  ==========================================
+  navigation
+  ==========================================
+*/
+
 .navigation {
   position: sticky;
   top: 10px;
@@ -43,7 +54,6 @@ a {
   border-radius: 10px;
   width: 50px;
   height: 40px;
-  /* background-color: #FFFFFF; */
 }
 
 .nav-list {
@@ -55,6 +65,12 @@ a {
 .navigation ul li a:hover {
   color: #E53A40;
 }
+
+/* 
+  ==========================================
+  main
+  ==========================================
+*/
 
 main {
   display: flex;
@@ -109,9 +125,6 @@ main {
   grid-area: suf;
 }
 
-/* .basic {
-  
-} */
 
 .comments {
   display: none;
@@ -140,11 +153,23 @@ main {
   color: #30A9DE;
 }
 
+/* 
+  ==========================================
+  about-me
+  ========================================== 
+*/
+
 #about {
   display: grid;
   padding: 10px;
-  grid-template-columns: 1fr 10fr 1fr;
+  grid-template-columns: 1fr 5fr 5fr 1fr;
   grid-template-rows: 1fr 3fr 1fr 3fr;
+  grid-template-areas: 
+  ". intro1 profile profile"
+  ". list1 profile profile"
+  ". intro2 profile profile"
+  ". list2 profile profile"
+  ;
   height: 100vh;
 }
 
@@ -154,25 +179,44 @@ ul {
 }
 
 .intro1 {
+  grid-area: intro1;
   grid-column: 2 / span 1;
   grid-row: 1 / span 1;
 }
 
 .list1 {
+  
+  grid-area: list1;
   grid-column: 2 / span 1;
   grid-row: 2/ span 1;
   opacity: 0;
 }
 
 .intro2 {
+  grid-area: intro2;
   grid-column: 2 / span 1;
   grid-row: 3 / span 1;
 }
 
 .list2 {
+  grid-area: list2;
   grid-column: 2 / span 1;
   grid-row: 4/ span 1;
   opacity: 0;
+}
+
+.profile-image{
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  padding-top: 10%;
+  grid-area: profile;
+}
+
+.profile-image img {
+  height: 80%;
+  width: 55%;
+  border-radius: 10%;
 }
 
 .intro-text {
@@ -189,6 +233,12 @@ ul {
   font-weight: 500;
   font-size: 25px;
 }
+
+/* 
+  ==========================================
+  projects
+  ========================================== 
+*/
 
 #projects {
   display: grid;
@@ -281,6 +331,12 @@ ul {
   background-color: black;
 }
 
+/* 
+  ==========================================
+  contact
+  ========================================== 
+*/
+
 #contact {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -335,13 +391,23 @@ ul {
 }
 
 .icon {
-  height: 25px;
-  width: 25px;
+  height: 35px;
+  width: 35px;
 }
 
+.icon:hover {
+  filter: invert(20%) sepia(40%);
+
+}
+
+/* 
+  ==========================================
+  animation keyframes
+  ==========================================
+*/
 .fade-in {
-  animation: fadein 0.6s ease-in forwards;
-  -webkit-animation: fadein 0.6s ease-in forwards;
+  animation: fadein 0.5s ease-in forwards;
+  -webkit-animation: fadein 0.5s ease-in forwards;
 }
 
 .fade-out {
@@ -442,6 +508,21 @@ ul {
     background-color: #000000;
   }
 
+}
+
+.slide-fade-in {
+  animation: slidein 0.4s ease-out forwards, fadein 0.4s ease-out forwards;
+  -webkit-animation: slidein 0.4s ease-out forwards, fadein 0.4s ease-out forwards;
+}
+
+@keyframes slidein {
+  from {
+    transform: translateX(-50px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
 }
 
 .zoomin:hover {

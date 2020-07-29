@@ -9,6 +9,7 @@ const homeIntroNode = document.querySelector('.home-intro');
 const projectsNode = document.getElementById("projects"); 
 const list1Node = document.querySelector('.list1');
 const list2Node = document.querySelector('.list2');
+const profileNode = document.querySelector('.profile-image');
 
 const introSection = new DOMAnimation(homeIntroNode);
 const prefixSection = new DOMAnimation(prefixNode);
@@ -19,6 +20,7 @@ const list1Section = new DOMAnimation(list1Node);
 const list2Section = new DOMAnimation(list2Node);
 const basicSection = new DOMAnimation(basicNode);
 const projectsSection = new DOMAnimation(projectsNode);
+const profileSection = new DOMAnimation(profileNode);
 
 let showList1 = false;
 let showList2 = false;
@@ -93,15 +95,17 @@ document.querySelector('.jun').addEventListener('mouseout', mouseoutFunc);
 
 const bodyAnimation = (progress) => {
   if (progress > 10 && !showList1) { // 나에 대한 소개 두 번째 class = list1
-    list1Section.addClass('fade-in');
+    list1Section.addClass('slide-fade-in');
+    profileSection.addClass('fade-in');
   } else if(progress < 9){
-    list1Section.removeClass('fade-in');
+    list1Section.removeClass('slide-fade-in');
+    profileSection.removeClass('fade-in');
   }
 
   if (progress > 20 && !showList2) { // 나에 대한 소개 두 번째 class = list2
-    list2Section.addClass('fade-in');
+    list2Section.addClass('slide-fade-in');
   } else if(progress < 20){
-    list2Section.removeClass('fade-in');
+    list2Section.removeClass('slide-fade-in');
   }
 
   if(progress > 56 && progress < 62) {
@@ -137,69 +141,87 @@ window.addEventListener("scroll", function() {
 
 // project의 thumbnail animation
 
-let projectsMouseover = (event) => {
-  const cName = event.target.className
+let porjectsMouseenter = (event) => {
+  const cName = event.target.className;
+
+  const [containerDiv, textDiv, iconsDiv, githubLink, notionLink, githubIcon, notionIcon] = makingElements('div', 'div', 'div', 'a', 'a', 'img', 'img');
+  containerDiv.classList.add('fade-in');
+  
+  const containerStyle = 'display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; font-size: 30px; color: white;';
+  const textDivStyle = 'height: 100%; display: flex; justify-content: center; align-items: center;';
+  const iconsDivStyle = 'display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; grid-template-areas: ". github notion ."';
+  const commonLinkStyle = 'display:flex; justify-content: center; align-items: center;';
+  const githubLinkStyle = `grid-area: github; ${commonLinkStyle}`;
+  const notionLinkStyle = `grid-area: notion; ${commonLinkStyle}`;
+  const iconsStyle = 'width: 35x; height: 35px;';
+
+  containerDiv.style.cssText = containerStyle;
+  textDiv.style.cssText = textDivStyle;
+  iconsDiv.style.cssText = iconsDivStyle;
+  githubLink.style.cssText = githubLinkStyle;
+  notionLink.style.cssText = notionLinkStyle;
+  githubIcon.style.cssText = iconsStyle;
+  notionIcon.style.cssText = iconsStyle;
+
+  githubIcon.setAttribute('src', './assets/GitHub-Mark-120px-plus.png');
+  notionIcon.setAttribute('src', './assets/Notion_app_logo.png');
+  githubLink.setAttribute('target', 'blank');
+  notionLink.setAttribute('target', 'blank');
+
+  appendManyChilds(iconsDiv, githubLink, notionLink);
+  appendManyChilds(containerDiv, textDiv, iconsDiv);
+    
+  const divSection = new DOMAnimation(containerDiv);
+
+  divSection.addClass('thumbnail', 'fade-in', 'newDiv');
   
   if(findClassName(cName, 'modurun')) {
-    const [containerDiv, iconsDiv, githubLink, notionLink, githubIcon, notionIcon] = makingElements('div', 'div', 'a', 'a', 'img', 'img');
-    
-    const containerStyle = 'display: grid; grid-template-rows: 1fr 1fr; font-size: 30px; color: white';
-    const iconsDivStyle = 'display: flex; justify-content: center; align-items: center; ';
-    const iconsStyle = 'width: 35x; height: 35px';
-
-    containerDiv.classList.add('fade-in');
-
-    containerDiv.style.cssText = containerStyle;
-    iconsDiv.style.cssText = iconsDivStyle;
-    githubIcon.style.cssText = iconsStyle;
-    notionIcon.style.cssText = iconsStyle;
+    const text1 = document.createTextNode('JS, React, React Native');
+    textDiv.appendChild(text1);
     
     githubLink.setAttribute('href', 'https://github.com/Starcush/client_modurun');
-    githubIcon.setAttribute('src', './assets/GitHub-Mark-120px-plus.png');
     githubLink.appendChild(githubIcon);
     
     notionLink.setAttribute('href', 'https://www.notion.so/wagucus198/Modurun-bd38e14979464ca68be353b60cf26a44');
-    notionIcon.setAttribute('src', './assets/Notion_app_logo.png');
     notionLink.appendChild(notionIcon);
 
-    appendManyChilds(iconsDiv, githubLink, notionLink);
-
-    const text = document.createTextNode("JS, React, React Native");
-
-    containerDiv.appendChild(text);
-    containerDiv.appendChild(iconsDiv);
-    /*
-      <div> style=> display: grid; grid-template-rows: 1fr 1fr; font-size: 30px; color: white;
-        <div /> : 사용 언어 style=> display: flex; justify-content: center; align-items: center;
-        <div /> 
-      </div>
-    */
-    const divSection = new DOMAnimation(containerDiv);
-
-    divSection.addClass('thumbnail', 'fade-in', 'newDiv');
     document.querySelector('.modurun').appendChild(containerDiv);
     document.querySelector('.modurun-thumbnail').style.display = 'none';
+
+  } else if(findClassName(cName, 'zeroto66')) {
+    const text = document.createTextNode('JS, AWS(EC2, RDS)');
+    textDiv.appendChild(text);
+    
+    githubLink.setAttribute('href', 'https://github.com/Starcush/ZeroTo66_server');
+    githubLink.appendChild(githubIcon);
+    
+    notionLink.setAttribute('href', 'https://www.notion.so/wagucus198/Zeroto66-a2d9b2715d4741ad9f61c4b0623ce44a');
+    notionLink.appendChild(notionIcon);
+
+    document.querySelector('.zeroto66').appendChild(containerDiv);
+    document.querySelector('.zeroto66-thumbnail').style.display = 'none';
+
   }   
 }
 
-let projectsMouseout = (event) => {
-  if(document.querySelector('.thumbnail') !== event.target) {
-    return;
-  }
+let projectsMouseleave = (event) => {
   const cName = event.target.className
 
   if(findClassName(cName, 'modurun')) {
     document.querySelector('.modurun-thumbnail').textContent = "모두런";
     document.querySelector('.modurun-thumbnail').style.display = 'flex';
-    // document.querySelector('.modurun-thumbnail').classList.add('fade-in');
     document.querySelector('.newDiv').remove();
-    
-    
-    // document.querySelector('.modurun').textContent = '모두런';
+
+  } else if(findClassName(cName, 'zeroto66')) {
+    document.querySelector('.zeroto66-thumbnail').textContent = "Zeroto66";
+    document.querySelector('.zeroto66-thumbnail').style.display = 'flex';
+    document.querySelector('.newDiv').remove();
   }
 }
 
-document.querySelector('.thumbnail').addEventListener('mouseenter', projectsMouseover, true);
-// document.querySelector('.thumbnail').removeEventListener('mouseout', projectsMouseout);
-// document.querySelector('.thumbnail').removeEventListener('mouseover', projectsMouseover);
-document.querySelector('.thumbnail').addEventListener('mouseleave', projectsMouseout, true);
+const projects = Array.from(document.getElementsByClassName('thumbnail'));
+projects.forEach((el) => {
+  el.addEventListener('mouseenter', porjectsMouseenter, true);
+  el.addEventListener('mouseleave', projectsMouseleave, true);
+});
+
