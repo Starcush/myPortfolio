@@ -31,25 +31,13 @@ const findClassName = (object, target) => {
   return false;
 }
 
-const makingElements = (...props) => {
-  return props.map((el) => {
-    return document.createElement(el);
-  });
-}
-
-const appendManyChilds = (parent, ...childs) => {
-  childs.forEach((el) => {
-    parent.appendChild(el);
-  });
-}
-
 // main section에서 발생하는 animation
 let mainMouseover = (event) => { // 마우스를 가져다 대면 메인화면 글의 내용이 바뀌도록
 
   // 정규표현식을 사용해서 원하는 className이 있는지 확인하는 걸 작성하자.
   const cName = event.target.className;
-
   if(findClassName(cName, 'name')) {
+    prefixNode.textContent = "";
     introSection.fadeout();
     basicSection.addClass('hide')
     basicSection.removeClass('show');
@@ -60,6 +48,7 @@ let mainMouseover = (event) => { // 마우스를 가져다 대면 메인화면 �
       cmmnt3Section.removeClass('show');
 
     } else if (findClassName(cName, 'jun')) {
+      prefixNode.textContent = "지금까지";
       prefixSection.addClass('fade-in');
       prefixSection.removeClass('fade-out');
       cmmnt2Section.addClass('show', 'fade-in');
@@ -144,79 +133,59 @@ window.addEventListener("scroll", function() {
 let porjectsMouseenter = (event) => {
   const cName = event.target.className;
 
-  const [containerDiv, textDiv, iconsDiv, githubLink, notionLink, githubIcon, notionIcon] = makingElements('div', 'div', 'div', 'a', 'a', 'img', 'img');
+  const containerDiv = document.createElement('div');
+  const containerStyle = 'font-size: 35px; color:rgba(255, 255, 255, 0.9); text-align:center; margin:0;'
+  containerDiv.style.cssText = containerStyle;
   containerDiv.classList.add('fade-in');
   
-  const containerStyle = 'display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; font-size: 30px; color: white;';
-  const textDivStyle = 'height: 100%; display: flex; justify-content: center; align-items: center;';
-  const iconsDivStyle = 'display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; grid-template-areas: ". github notion ."';
-  const commonLinkStyle = 'display:flex; justify-content: center; align-items: center;';
-  const githubLinkStyle = `grid-area: github; ${commonLinkStyle}`;
-  const notionLinkStyle = `grid-area: notion; ${commonLinkStyle}`;
-  const iconsStyle = 'width: 35x; height: 35px;';
-
-  containerDiv.style.cssText = containerStyle;
-  textDiv.style.cssText = textDivStyle;
-  iconsDiv.style.cssText = iconsDivStyle;
-  githubLink.style.cssText = githubLinkStyle;
-  notionLink.style.cssText = notionLinkStyle;
-  githubIcon.style.cssText = iconsStyle;
-  notionIcon.style.cssText = iconsStyle;
-
-  githubIcon.setAttribute('src', './assets/GitHub-Mark-120px-plus.png');
-  notionIcon.setAttribute('src', './assets/Notion_app_logo.png');
-  githubLink.setAttribute('target', 'blank');
-  notionLink.setAttribute('target', 'blank');
-
-  appendManyChilds(iconsDiv, githubLink, notionLink);
-  appendManyChilds(containerDiv, textDiv, iconsDiv);
-    
   const divSection = new DOMAnimation(containerDiv);
-
   divSection.addClass('thumbnail', 'fade-in', 'newDiv');
+
   
   if(findClassName(cName, 'modurun')) {
-    const text1 = document.createTextNode('JS, React, React Native');
-    textDiv.appendChild(text1);
-    
-    githubLink.setAttribute('href', 'https://github.com/Starcush/client_modurun');
-    githubLink.appendChild(githubIcon);
-    
-    notionLink.setAttribute('href', 'https://www.notion.so/wagucus198/Modurun-bd38e14979464ca68be353b60cf26a44');
-    notionLink.appendChild(notionIcon);
+    const text1 = document.createTextNode('JS, React');
+    const text2 = document.createTextNode('React Native')
+    const br = document.createElement('br');
+    containerDiv.appendChild(text1);
+    containerDiv.appendChild(br);
+    containerDiv.appendChild(text2);
 
     document.querySelector('.modurun').appendChild(containerDiv);
     document.querySelector('.modurun-thumbnail').style.display = 'none';
 
   } else if(findClassName(cName, 'zeroto66')) {
-    const text = document.createTextNode('JS, AWS(EC2, RDS)');
-    textDiv.appendChild(text);
+    const text1 = document.createTextNode('JS, Node.js');
+    const text2 = document.createTextNode('AWS(EC2, RDS)')
+    const br = document.createElement('br');
+    containerDiv.appendChild(text1);
+    containerDiv.appendChild(br);
+    containerDiv.appendChild(text2);
     
-    githubLink.setAttribute('href', 'https://github.com/Starcush/ZeroTo66_server');
-    githubLink.appendChild(githubIcon);
-    
-    notionLink.setAttribute('href', 'https://www.notion.so/wagucus198/Zeroto66-a2d9b2715d4741ad9f61c4b0623ce44a');
-    notionLink.appendChild(notionIcon);
-
     document.querySelector('.zeroto66').appendChild(containerDiv);
     document.querySelector('.zeroto66-thumbnail').style.display = 'none';
-
   }   
 }
 
 let projectsMouseleave = (event) => {
   const cName = event.target.className
 
+  let removeAllEl = (className) => {
+    let elements = Array.from(document.getElementsByClassName(className));
+    elements.forEach((el) => {
+      el.remove();
+    })
+  }
+
   if(findClassName(cName, 'modurun')) {
     document.querySelector('.modurun-thumbnail').textContent = "모두런";
     document.querySelector('.modurun-thumbnail').style.display = 'flex';
-    document.querySelector('.newDiv').remove();
 
   } else if(findClassName(cName, 'zeroto66')) {
     document.querySelector('.zeroto66-thumbnail').textContent = "Zeroto66";
     document.querySelector('.zeroto66-thumbnail').style.display = 'flex';
-    document.querySelector('.newDiv').remove();
+    
   }
+  removeAllEl('newDiv');
 }
 
 const projects = Array.from(document.getElementsByClassName('thumbnail'));
