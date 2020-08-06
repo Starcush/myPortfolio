@@ -5,10 +5,13 @@
 */
 * {
   font-family: 'Noto Sans KR', sans-serif;
+  padding: 0;
+  margin: 0;
 }
 
 html {
   scroll-behavior: smooth;
+  font-size:10px;
 }
 
 .white-text {
@@ -37,33 +40,57 @@ a {
 .navigation {
   position: sticky;
   top: 10px;
-  right: 10px;
-  z-index: 5;
 }
 
 .navigation ul {
   list-style: none;
   display: flex;
   justify-content: flex-end;
+  padding-top: 10px;
+  right: 10px;
+  z-index: 5;
+  background-color: #FFFFFF;
+  height: 40px;
 }
 
 .navigation ul li {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
-  width: 50px;
-  height: 40px;
+  /* width: 50px; */
+  /* height: 40px; */
+  margin-right: 1.1vw;
 }
 
 .nav-list {
   color: #A9A9A9;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 2rem;
 }
 
 .navigation ul li a:hover {
   color: #E53A40;
+}
+
+.scroll-arrow-area {
+  position: sticky;
+  /* background-color: blueviolet; */
+  display: flex;
+  width: 100px;
+  height: 100px;
+  flex-direction: row;
+  top: 20px;
+}
+
+.scroll-arrow {
+  /* background-color: aquamarine; */
+  /* position: sticky; */
+  margin-right: 10px;
+  border-radius: 3px;
+  width: 20px;
+  height: 20px;
+  transform: rotate(-45deg);
+  box-shadow: 2px -2px 0 black;
 }
 
 /* 
@@ -86,7 +113,7 @@ main {
   grid-template-areas: 
     "intro intro intro"
     "pre main suf"
-    ". . ."
+    ". arrow ."
   ;
 }
 
@@ -96,7 +123,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 45px;
+  font-size: 4.3rem;
   font-weight: 900;
 }
 
@@ -109,7 +136,7 @@ main {
 
 .home-comments {
   position: relative;
-  font-size: 50px;
+  font-size: 5rem;
   font-weight: 900;
   top: 62%;
 }
@@ -119,18 +146,19 @@ main {
   display: flex;
   justify-content: flex-end;
   opacity: 1;
+  margin-right: 1.5rem;
 }
 
 .click {
   margin-top: 16px;
-  font-size: 25px;
+  font-size: 2.5rem;
   animation: slidetext .7s ease-in-out infinite;
   -webkit-animation: slidetext .7s ease-in-out infinite;  
 }
 
 .click-arrow {
-  width: 20px;
-  height: 20px;
+  width: 2rem;
+  height: 2rem;
   box-shadow: -2px 2px 0 rgba(255, 255, 255, .5);
   transform: rotate(225deg);
   margin-top: 5%;
@@ -148,10 +176,10 @@ main {
   opacity: 0;
 }
 
-#home span a {
+.name {
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 900;
-  font-size: 200px;
+  font-size: 20rem;
 }
 
 .name:hover {
@@ -170,6 +198,29 @@ main {
   color: #30A9DE;
 }
 
+.main-arrow-area {
+  grid-area: arrow;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 30px;
+}
+
+.main-scroll-arrow {
+  display: none;
+  width: 40px;
+  height: 40px;
+  box-shadow: -3px 3px 0 #A9A9A9;
+  transform: rotate(-45deg);
+  margin-top: 5%;
+  border-radius: 10%;
+  animation: underarrow .7s ease-in-out infinite;
+  -webkit-animation: underarrow .7s ease-in-out infinite;
+}
+
+.main-scroll-arrow:hover {
+}
+
 /* 
   ==========================================
   about-me
@@ -179,13 +230,13 @@ main {
 #about {
   display: grid;
   padding: 10px;
-  grid-template-columns: 1fr 5fr 5fr 1fr;
+  grid-template-columns: 1fr 6fr 6fr 1fr;
   grid-template-rows: 1fr 3fr 1fr 3fr;
   grid-template-areas: 
-  ". intro1 profile profile"
-  ". list1 profile profile"
-  ". intro2 profile profile"
-  ". list2 profile profile"
+  ". intro1 profile ."
+  ". list1 profile ."
+  ". intro2 profile ."
+  ". list2 profile ."
   ;
   height: 100vh;
 }
@@ -225,14 +276,14 @@ ul {
 .profile-image{
   opacity: 0;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   padding-top: 10%;
   grid-area: profile;
 }
 
 .profile-image img {
-  height: 80%;
-  width: 55%;
+  height: 60rem;
+  width: 40rem;
   border-radius: 10%;
 }
 
@@ -241,14 +292,14 @@ ul {
   align-items: flex-end;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 900;
-  font-size: 30px;
+  font-size: 3rem;
 }
 
 .item {
   font-family: 'Noto Sans KR', sans-serif;
   margin-bottom: 20px;
   font-weight: 500;
-  font-size: 25px;
+  font-size: 2.5rem;
 }
 
 /* 
@@ -270,7 +321,7 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 40px;
+  font-size: 4rem;
 }
 
 .project-intro {
@@ -303,7 +354,7 @@ ul {
     "thumbnail"
     "detail"
   ;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 900;
 }
 
@@ -462,14 +513,14 @@ ul {
 .txt li {
   font-family: 'Noto Sans', sans-serif;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 1.8rem;
   color: #000000;
 }
 
 .contact-comments {
   display:flex;
   font-weight: 600;
-  font-size: 30px;
+  font-size: 3rem;
 }
 
 .icon {
@@ -673,6 +724,24 @@ ul {
   }
 }
 
-.zoomin:hover {
-  transition: scale(1.1);
+@keyframes underarrow {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(-45deg);
+  }
+
+  50% {
+    transform: translate(0, -10px) rotate(-45deg);
+  }
+}
+
+@-webkit-keyframes underarrow {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(-45deg);
+  }
+
+  50% {
+    transform: translate(0, -10px) rotate(-45deg);
+  }
 }
