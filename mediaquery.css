@@ -1,0 +1,29 @@
+@media (max-width: 1440px) {
+  html {
+    font-size: 9px;
+  }
+  .profile-image{
+    opacity: 0;
+    display: flex;
+    padding-top: 10%;
+    grid-area: profile;
+  }
+  /* .navigation ul {
+    display: none;
+  }
+  .menu-btn {
+    display: inline;
+  } */
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 8px;
+  }
+  .navigation ul{
+    display: none;
+  }
+  .main-scroll-arrow {
+    display: inline;
+  }
+}

@@ -2,12 +2,13 @@
 <html> 
   <head>
       <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet"/>
       <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap" rel="stylesheet"/>
       <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet"/>
       <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet"/>
       <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="mediaquery.css">
       <title>Portfolio</title>
   </head>
   <body>
@@ -18,7 +19,7 @@
         </div>
         <div class="prefix home-comments gray-text">
           <div class="click">
-            클릭!
+            <!-- 클릭! -->
           </div>
           <div class="click-arrow">
           </div>
@@ -40,15 +41,26 @@
           <span class="comments2 comments">이 한 것들</span>
           <span class="comments3 comments">과 연락은</span>
         </div>
+        <div class="main-arrow-area">
+          <div class="main-scroll-arrow"></div>
+        </div>
       </div>
     </main>
     <nav class="navigation"> <!-- 메인 페이지 이외에서는 항상 보여지는 페이지 -->
       <ul>
-        <li><a class="nav-list" href="#home">#1</a></li>
-        <li><a class="nav-list" href="#about">#2</a></li>
-        <li><a class="nav-list" href="#projects">#3</a></li>
-        <li><a class="nav-list" href="#contact">#4</a></li>
+        <li><a class="nav-list" href="#home">#처음</a></li>
+        <li><a class="nav-list" href="#about">#소개</a></li>
+        <li><a class="nav-list" href="#projects">#작업</a></li>
+        <li><a class="nav-list" href="#contact">#연락</a></li>
       </ul>
+      <!-- <svg height="80" width="80">
+        <circle class="circle" cx="30" cy="30" r="15"  stroke="#231f20" fill-opacity="0" stroke-width="1"/>
+        <image class="arrow-svg" x="15" y="15" width="30" height="30" xlink:href="https://upload.wikimedia.org/wikipedia/commons/9/9d/Arrow-down.svg" />
+      </svg> -->
+      <div class="scroll-arrow-area">
+        <div class="scroll-arrow scroll-up"></div>
+        <div class="scroll-arrow scroll-down"></div>
+      </div>
     </nav>
     <div id="about">
       <div class="intro-text intro1">
@@ -56,13 +68,13 @@
       </div>
       <ul class="list1">
         <li class="item gray-text">
-          학교에서 <span class="black-text">토목공학</span>을 전공했습니다.
+          부트캠프로 <span class="black-text">코딩</span>을 시작했습니다.
         </li>
         <li class="item gray-text">
           <span class="black-text">외국어</span> 공부 하는 것을 좋아합니다.
         </li>
         <li class="item gray-text">
-          기록하는 것을 좋아해서 <span class="black-text">다이어리</span>를 작성합니다.
+          <span class="black-text">글로써 정리해 두는 것을</span>좋아합니다.
         </li>
         <li class="item gray-text">
           무엇이든 <span class="black-text">배우는 것을 좋아합니다.</span>
@@ -73,16 +85,16 @@
       </div>
       <ul class="list2">
         <li class="item gray-text">
-          <span class="black-text">하고 싶은 것</span>이 있어서 프로그래밍을 배웠고,
+          <span class="black-text">하고 싶은 것</span>이 있어서 프로그래밍을 시작했고,
         </li>
         <li class="item gray-text">
-          <span class="black-text">일본어</span>와 <span class="black-text">영어</span>로 이야기할 줄 압니다.
+          <span class="black-text">영어</span>와 <span class="black-text">일본어</span>로 이야기할 줄 압니다.
         </li>
         <li class="item gray-text">
-          문서화를 통해서 <span class="black-text">기록하는 것을 좋아하고,</span>
+          <span class="black-text">문서화</span>를 통해서 <span class="black-text">기록하는 것을 좋아하고,</span>
         </li>
         <li class="item gray-text">
-          새로운 것을 배우는 것에 대해 <span class="black-text">두려워 하지 않습니다.</span>
+          <span class="black-text">새로운 것을</span> 배우는 걸 <span class="black-text">두려워 하지 않습니다.</span>
         </li>
       </ul>
       <div class="profile-image">
@@ -164,5 +176,6 @@
 
     <script type="module" src="main.js"></script>
     <script type="module" src="animation.js"></script>
+    <script type="module" src="scrollArrow.js"></script>
   </body>
 </html>
