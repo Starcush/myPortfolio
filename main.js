@@ -1,4 +1,5 @@
 import { DOMAnimation } from './animation.js';
+import { findClassName } from './modules.js';
 
 const prefixNode = document.querySelector('.prefix');
 const basicNode = document.querySelector('.basic');
@@ -25,11 +26,11 @@ const profileSection = new DOMAnimation(profileNode);
 let showList1 = false;
 let showList2 = false;
 
-const findClassName = (object, target) => {
-  const reg = new RegExp(target, 'g');
-  if(reg.test(object)) return true;
-  return false;
-}
+// export const findClassName = (object, target) => {
+//   const reg = new RegExp(target, 'g');
+//   if(reg.test(object)) return true;
+//   return false;
+// }
 
 // main section에서 발생하는 animation
 let mainMouseover = (event) => { // 마우스를 가져다 대면 메인화면 글의 내용이 바뀌도록

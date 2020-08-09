@@ -37,12 +37,12 @@ a {
   ==========================================
 */
 
-.navigation {
+.navigation-bar {
   position: sticky;
   top: 10px;
 }
 
-.navigation ul {
+.navigation-bar ul {
   list-style: none;
   display: flex;
   justify-content: flex-end;
@@ -53,7 +53,7 @@ a {
   height: 40px;
 }
 
-.navigation ul li {
+.navigation-bar ul li {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,7 +68,7 @@ a {
   font-size: 2rem;
 }
 
-.navigation ul li a:hover {
+.navigation-bar ul li a:hover {
   color: #E53A40;
 }
 
@@ -76,22 +76,32 @@ a {
   position: sticky;
   /* background-color: blueviolet; */
   display: flex;
-  width: 100px;
-  height: 100px;
+  width: 100vw;
+  height: 30px;
   flex-direction: row;
-  top: 20px;
+  top: 93%;
 }
 
 .scroll-arrow {
   /* background-color: aquamarine; */
-  /* position: sticky; */
-  margin-right: 10px;
-  border-radius: 3px;
+  position: relative;
+  margin-right: 15px;
   width: 20px;
   height: 20px;
-  transform: rotate(-45deg);
-  box-shadow: 2px -2px 0 black;
+  transform: rotate(-135deg);
+  /* box-shadow: 2.5px -2.5px 0 black; */
+  border: solid #A9A9A9;
+  border-width: 0 3px 3px 0;
+  right: -89%;
 }
+
+/* .scroll-up {
+  right: 80%;
+}
+
+.scroll-down {
+
+} */
 
 /* 
   ==========================================
@@ -210,10 +220,12 @@ main {
   display: none;
   width: 40px;
   height: 40px;
-  box-shadow: -3px 3px 0 #A9A9A9;
-  transform: rotate(-45deg);
+  border-style: solid;
+  border-color: #A9A9A9;
+  border-width: 0 4px 4px 0;
+  transform: rotate(45deg);
   margin-top: 5%;
-  border-radius: 10%;
+  border-radius: 5%;
   animation: underarrow .7s ease-in-out infinite;
   -webkit-animation: underarrow .7s ease-in-out infinite;
 }
@@ -362,6 +374,8 @@ ul {
   grid-area: thumbnail;
   width: 400px;
   height: 250px;
+  /* width: 38vw;
+  height: 35vh; */
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -705,43 +719,43 @@ ul {
 @keyframes miniarrow {
   0%,
   100% {
-    transform: translate(0, 0) rotate(-45deg);
+    transform: translate(0, 0) rotate(45deg);
   }
 
   50% {
-    transform: translate(5px, 0) rotate(-45deg);
+    transform: translate(5px, 0) rotate(45deg);
   }
 }
 
 @-webkit-keyframes miniarrow {
   0%,
   100% {
-    transform: translate(0, 0) rotate(-45deg);
+    transform: translate(0, 0) rotate(45deg);
   }
 
   50% {
-    transform: translate(5px, 0) rotate(-45deg);
+    transform: translate(5px, 0) rotate(45deg);
   }
 }
 
 @keyframes underarrow {
   0%,
   100% {
-    transform: translate(0, 0) rotate(-45deg);
+    transform: translate(0, 0) rotate(45deg);
   }
 
   50% {
-    transform: translate(0, -10px) rotate(-45deg);
+    transform: translate(0, -10px) rotate(45deg);
   }
 }
 
 @-webkit-keyframes underarrow {
   0%,
   100% {
-    transform: translate(0, 0) rotate(-45deg);
+    transform: translate(0, 0) rotate(45deg);
   }
 
   50% {
-    transform: translate(0, -10px) rotate(-45deg);
+    transform: translate(0, -10px) rotate(45deg);
   }
 }
