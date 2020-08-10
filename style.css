@@ -128,6 +128,7 @@ main {
 }
 
 .home-intro {
+  padding: 0;
   opacity: 1;
   grid-area: intro;
   display: flex;
@@ -146,9 +147,11 @@ main {
 
 .home-comments {
   position: relative;
-  font-size: 5rem;
+  /* font-size: 5rem; */
+  font-size: 2.5rem;
   font-weight: 900;
   top: 62%;
+  /* display: none; */
 }
 
 .prefix {
@@ -218,8 +221,10 @@ main {
 
 .main-scroll-arrow {
   display: none;
-  width: 40px;
-  height: 40px;
+  /* width: 40px;
+  height: 40px; */
+  width: 20px;
+  height: 20px;
   border-style: solid;
   border-color: #A9A9A9;
   border-width: 0 4px 4px 0;
@@ -251,6 +256,7 @@ main {
   ". list2 profile ."
   ;
   height: 100vh;
+  width: 100vw;
 }
 
 ul {

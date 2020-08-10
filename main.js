@@ -25,6 +25,7 @@ const profileSection = new DOMAnimation(profileNode);
 
 let showList1 = false;
 let showList2 = false;
+let isDesktop = true;
 
 // export const findClassName = (object, target) => {
 //   const reg = new RegExp(target, 'g');
@@ -34,7 +35,7 @@ let showList2 = false;
 
 // main section에서 발생하는 animation
 let mainMouseover = (event) => { // 마우스를 가져다 대면 메인화면 글의 내용이 바뀌도록
-
+  if(!isDesktop) return;
   // 정규표현식을 사용해서 원하는 className이 있는지 확인하는 걸 작성하자.
   const cName = event.target.className;
   if(findClassName(cName, 'name')) {
@@ -195,3 +196,10 @@ projects.forEach((el) => {
   el.addEventListener('mouseleave', projectsMouseleave, true);
 });
 
+window.onresize = () => {
+  if(window.innerWidth <= 768 && isDesktop) { 
+    isDesktop = false;
+  } else if(window.innerWidth > 768 && !isDesktop) {
+    isDesktop = true;
+  }
+}

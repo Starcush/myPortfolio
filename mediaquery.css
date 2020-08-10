@@ -1,6 +1,6 @@
 @media (max-width: 1440px) {
-  html {
-    font-size: 9px;
+  .name {
+    font-size: 155px;
   }
   .profile-image{
     opacity: 0;
@@ -17,13 +17,35 @@
 }
 
 @media (max-width: 1024px) {
-  html {
-    font-size: 8px;
+  .name {
+    font-size: 139px;
   }
   .navigation-bar ul{
     display: none;
   }
   .main-scroll-arrow {
     display: inline;
+  }
+}
+
+@media (max-width: 768px) {
+  .name {
+    font-size: 18vw;
+  }
+  .home-intro {
+    display: none;
+    font-size: 4vw;
+  }
+  .home-comments {
+    display: none;
+  }
+  .cho {
+    color: #E53A40;
+  }
+  .jun {
+    color: #EFDC05;
+  }
+  .hyun {
+    color: #30A9DE;
   }
 }
