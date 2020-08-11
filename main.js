@@ -27,11 +27,26 @@ let showList1 = false;
 let showList2 = false;
 let isDesktop = true;
 
-// export const findClassName = (object, target) => {
-//   const reg = new RegExp(target, 'g');
-//   if(reg.test(object)) return true;
-//   return false;
-// }
+let showThumbnail = (txt1, txt2, targetEl, invisibleEl) => {
+
+  const containerDiv = document.createElement('div');
+  const containerStyle = 'font-size: 35px; color:rgba(255, 255, 255, 0.9); text-align:center; margin:0;'
+  containerDiv.style.cssText = containerStyle;
+  containerDiv.classList.add('fade-in');
+  
+  const divSection = new DOMAnimation(containerDiv);
+  divSection.addClass('thumbnail', 'fade-in', 'newDiv');
+
+  const text1 = document.createTextNode(txt1);
+  const text2 = document.createTextNode(txt2);
+  const br = document.createElement('br');
+  containerDiv.appendChild(text1);
+  containerDiv.appendChild(br);
+  containerDiv.appendChild(text2);
+
+  document.querySelector(targetEl).appendChild(containerDiv);
+  document.querySelector(invisibleEl).style.display = 'none';
+}
 
 // main section에서 발생하는 animation
 let mainMouseover = (event) => { // 마우스를 가져다 대면 메인화면 글의 내용이 바뀌도록
@@ -117,9 +132,10 @@ document.getElementById('home').addEventListener('mouseover', mainMouseover);
 document.querySelector('.jun').addEventListener('mouseout', mainMouseout);
 
 let ticking = false;
+let progress;
 
 window.addEventListener("scroll", function() {
-  let progress = (window.pageYOffset / document.body.offsetHeight) * 100;
+  progress = (window.pageYOffset / document.body.offsetHeight) * 100;
 
   if (!ticking) {
     window.requestAnimationFrame(function() {
@@ -132,40 +148,17 @@ window.addEventListener("scroll", function() {
 
 // project의 thumbnail animation
 
-let porjectsMouseenter = (event) => {
+let projectsMouseenter = (event) => {
+
   const cName = event.target.className;
-
-  const containerDiv = document.createElement('div');
-  const containerStyle = 'font-size: 35px; color:rgba(255, 255, 255, 0.9); text-align:center; margin:0;'
-  containerDiv.style.cssText = containerStyle;
-  containerDiv.classList.add('fade-in');
   
-  const divSection = new DOMAnimation(containerDiv);
-  divSection.addClass('thumbnail', 'fade-in', 'newDiv');
-
-  
-  if(findClassName(cName, 'modurun')) {
-    const text1 = document.createTextNode('JS, React');
-    const text2 = document.createTextNode('React Native')
-    const br = document.createElement('br');
-    containerDiv.appendChild(text1);
-    containerDiv.appendChild(br);
-    containerDiv.appendChild(text2);
-
-    document.querySelector('.modurun').appendChild(containerDiv);
-    document.querySelector('.modurun-thumbnail').style.display = 'none';
-
-  } else if(findClassName(cName, 'zeroto66')) {
-    const text1 = document.createTextNode('JS, Node.js');
-    const text2 = document.createTextNode('AWS(EC2, RDS)')
-    const br = document.createElement('br');
-    containerDiv.appendChild(text1);
-    containerDiv.appendChild(br);
-    containerDiv.appendChild(text2);
-    
-    document.querySelector('.zeroto66').appendChild(containerDiv);
-    document.querySelector('.zeroto66-thumbnail').style.display = 'none';
-  }   
+  if(isDesktop) {
+    if(findClassName(cName, 'modurun')) {
+      showThumbnail('JS, React', 'React Native', '.modurun', '.modurun-thumbnail');
+    } else if(findClassName(cName, 'zeroto66')) {
+      showThumbnail('JS, Node.js', 'AWS(EC2, RDS)', '.zeroto66', '.zeroto66-thumbnail');
+    }
+  }     
 }
 
 let projectsMouseleave = (event) => {
@@ -192,14 +185,14 @@ let projectsMouseleave = (event) => {
 
 const projects = Array.from(document.getElementsByClassName('thumbnail'));
 projects.forEach((el) => {
-  el.addEventListener('mouseenter', porjectsMouseenter, true);
+  el.addEventListener('mouseenter', projectsMouseenter, true);
   el.addEventListener('mouseleave', projectsMouseleave, true);
 });
 
 window.onresize = () => {
-  if(window.innerWidth <= 768 && isDesktop) { 
+  if(window.innerWidth <= 1024 && isDesktop) { 
     isDesktop = false;
-  } else if(window.innerWidth > 768 && !isDesktop) {
+  } else if(window.innerWidth > 1024 && !isDesktop) {
     isDesktop = true;
   }
 }
