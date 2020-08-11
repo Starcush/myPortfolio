@@ -197,9 +197,9 @@ projects.forEach((el) => {
 });
 
 window.onresize = () => {
-  if(window.innerWidth <= 768 && isDesktop) { 
+  if(window.innerWidth <= 1024 && isDesktop) { 
     isDesktop = false;
-  } else if(window.innerWidth > 768 && !isDesktop) {
+  } else if(window.innerWidth > 1024 && !isDesktop) {
     isDesktop = true;
   }
 }

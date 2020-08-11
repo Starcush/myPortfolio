@@ -39,18 +39,18 @@ a {
 
 .navigation-bar {
   position: sticky;
-  top: 10px;
+  top: 0;
+  right: 10px;
+  z-index: 5;
 }
 
 .navigation-bar ul {
   list-style: none;
   display: flex;
   justify-content: flex-end;
-  padding-top: 10px;
-  right: 10px;
-  z-index: 5;
+  align-items: center;
   background-color: #FFFFFF;
-  height: 40px;
+  height: 50px;
 }
 
 .navigation-bar ul li {
@@ -83,6 +83,7 @@ a {
 }
 
 .scroll-arrow {
+  display: none;
   /* background-color: aquamarine; */
   position: relative;
   margin-right: 15px;
@@ -95,13 +96,15 @@ a {
   right: -89%;
 }
 
-/* .scroll-up {
-  right: 80%;
+.scroll-up {
+  transform: rotate(-135deg);
+  margin-top: 7px;
 }
 
 .scroll-down {
-
-} */
+  transform: rotate(45deg);
+  margin-bottom: 7px;
+}
 
 /* 
   ==========================================
@@ -147,11 +150,9 @@ main {
 
 .home-comments {
   position: relative;
-  /* font-size: 5rem; */
-  font-size: 2.5rem;
+  font-size: 5rem;
   font-weight: 900;
-  top: 62%;
-  /* display: none; */
+  top: 65%;
 }
 
 .prefix {
@@ -235,9 +236,6 @@ main {
   -webkit-animation: underarrow .7s ease-in-out infinite;
 }
 
-.main-scroll-arrow:hover {
-}
-
 /* 
   ==========================================
   about-me
@@ -294,7 +292,7 @@ ul {
 .profile-image{
   opacity: 0;
   display: flex;
-  /* justify-content: center; */
+  justify-content: center;
   padding-top: 10%;
   grid-area: profile;
 }
@@ -311,6 +309,7 @@ ul {
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 900;
   font-size: 3rem;
+  margin-bottom: 10px;
 }
 
 .item {
@@ -725,22 +724,22 @@ ul {
 @keyframes miniarrow {
   0%,
   100% {
-    transform: translate(0, 0) rotate(45deg);
+    transform: translate(0, 0) rotate(-45deg);
   }
 
   50% {
-    transform: translate(5px, 0) rotate(45deg);
+    transform: translate(5px, 0) rotate(-45deg);
   }
 }
 
 @-webkit-keyframes miniarrow {
   0%,
   100% {
-    transform: translate(0, 0) rotate(45deg);
+    transform: translate(0, 0) rotate(-45deg);
   }
 
   50% {
-    transform: translate(5px, 0) rotate(45deg);
+    transform: translate(5px, 0) rotate(-45deg);
   }
 }
 

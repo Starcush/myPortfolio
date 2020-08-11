@@ -18,10 +18,11 @@ const scrollArrow = (e) => {
   if(findClassName(cName, 'main-scroll-arrow')) {
     console.log('main page arrow');
     window.scrollTo({top: introLocation, behavior:'smooth'});  
+
   } else if(findClassName(cName, 'scroll-up')) {
+    console.log('page up');
 
     if(curPosition <= introLocation) {
-      console.log('intro section');
       window.scrollTo({top: 0, behavior: 'smooth'});
     } else if(curPosition <= projectLocation) {
       window.scrollTo({top: introLocation, behavior: 'smooth'});
@@ -29,9 +30,14 @@ const scrollArrow = (e) => {
       window.scrollTo({top: projectLocation, behavior: 'smooth'});
     }
 
-    console.log('page up');
   } else if(findClassName(cName, 'scroll-down')) {
     console.log('page down');
+
+    if(curPosition <= introLocation) {
+      window.scrollTo({top: projectLocation, behavior: 'smooth'});
+    } else if(curPosition <= projectLocation) {
+      window.scrollTo({top: contactLocation, behavior: 'smooth'});
+    }
   }
 }
 
