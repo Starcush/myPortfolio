@@ -150,15 +150,14 @@ window.addEventListener("scroll", function() {
 
 let projectsMouseenter = (event) => {
 
+  if(!isDesktop) return;
   const cName = event.target.className;
-  
-  if(isDesktop) {
-    if(findClassName(cName, 'modurun')) {
-      showThumbnail('JS, React', 'React Native', '.modurun', '.modurun-thumbnail');
-    } else if(findClassName(cName, 'zeroto66')) {
-      showThumbnail('JS, Node.js', 'AWS(EC2, RDS)', '.zeroto66', '.zeroto66-thumbnail');
-    }
-  }     
+  if(findClassName(cName, 'modurun')) {
+    showThumbnail('JS, React', 'React Native', '.modurun', '.modurun-thumbnail');
+  } else if(findClassName(cName, 'zeroto66')) {
+    showThumbnail('JS, Node.js', 'AWS(EC2, RDS)', '.zeroto66', '.zeroto66-thumbnail');
+  }
+       
 }
 
 let projectsMouseleave = (event) => {
@@ -181,6 +180,10 @@ let projectsMouseleave = (event) => {
     
   }
   removeAllEl('newDiv');
+}
+
+if(!isDesktop) { // desktop이 아닐 경우 프로젝트 부분이 변경되어야 한다.
+
 }
 
 const projects = Array.from(document.getElementsByClassName('thumbnail'));
