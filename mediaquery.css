@@ -31,26 +31,52 @@
     display: inline;
   }
   #about {
+    grid-template-columns: 1fr 320px 1fr;
+    grid-template-rows: 8fr 1fr 2fr 1fr 2fr;
     grid-template-areas: 
-    ". intro1 profile profile"
-    ". list1 profile profile"
-    ". intro2 profile profile"
-    ". list2 profile profile"
+    ". profile ."
+    ". intro1 ."
+    ". list1 ."
+    ". intro2 ."
+    ". list2 ."
     ;
+    height: 180vh;
+    width: 100vw;
   }
+
+  .profile-image {
+    padding-top: 0;
+    align-items: center;
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+  }
+
   .profile-image img {
-    height: 60vw;
-    width: 40vw;
+    width: 307px;
+    height: 461px;
   }
+
   .intro-text {
-    font-size: 2.8vw;
+    font-size: 21.5px;
   }
+  
   .item {
-    font-size: 2.3vw;
+    font-size: 17.6px;
+  }
+
+  .intro1,
+  .intro2 {
+    padding-left: 20px;
+  }
+
+  .list1,
+  .list2 {
+    padding-left: 30px;
+    opacity: 0;
   }
 
   #projects {
-    height: 150vh;
+    height: 180vh;
   }
 
   .project-main ul {
@@ -75,7 +101,6 @@
   }
 
   .thumbnail-detail {
-    /* border-top: 2px solid white; */
     padding-top: 15px;
     margin-top: 15px;
     color: white;
@@ -90,6 +115,15 @@
   .notion-icon {
     width: 25px;
     height: 25px;
+  }
+
+  .contact-comments {
+    font-size: 20px;
+  }
+
+  .icon {
+    height: 30px;
+    width: 30px;
   }
 }
 
@@ -117,64 +151,5 @@
   .hyun {
     color: #EA0037;
     /* color: #00C322; */
-  }
-  #about {
-    grid-template-columns: 1fr 320px 1fr;
-    grid-template-rows: 8fr 1fr 2fr 1fr 2fr;
-    grid-template-areas: 
-    ". profile ."
-    ". intro1 ."
-    ". list1 ."
-    ". intro2 ."
-    ". list2 ."
-    ;
-    height: 140vh;
-    width: 100vw;
-  }
-
-  .profile-image {
-    padding-top: 0;
-    align-items: center;
-    grid-column: 2 / span 1;
-    grid-row: 1 / span 1;
-  }
-
-  .profile-image img {
-    width: 307px;
-    height: 461px;
-  }
-
-  .intro-text {
-    font-size: 21.5px;
-  }
-  
-  .item {
-    font-size: 17.6px;
-  }
-
-  .intro1 {
-    padding-left: 30px;
-    grid-column: 2 / span 1;
-    grid-row: 2 / span 1;
-  }
-
-  .list1 {
-    padding-left: 40px;
-    grid-column: 2 / span 1;
-    grid-row: 3 / span 1;
-    opacity: 0;
-  }
-  
-  .intro2 {
-    padding-left: 30px;
-    grid-column: 2 / span 1;
-    grid-row: 4 / span 1;
-  }
-  
-  .list2 {
-    padding-left: 40px;
-    grid-column: 2 / span 1;
-    grid-row: 5 / span 1;
-    opacity: 0;
   }
 }

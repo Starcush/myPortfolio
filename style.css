@@ -74,36 +74,36 @@ a {
 
 .scroll-arrow-area {
   position: sticky;
-  /* background-color: blueviolet; */
-  display: flex;
-  width: 100vw;
-  height: 30px;
-  flex-direction: row;
-  top: 93%;
+  
 }
 
-.scroll-arrow {
-  display: none;
-  /* background-color: aquamarine; */
-  position: relative;
-  margin-right: 15px;
+.navigation-arrow {
+  height: 100px;
+  width: 100px;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-scroll-arrow {
+  /* display: none; */
+  /* width: 40px;
+  height: 40px; */
   width: 20px;
   height: 20px;
-  transform: rotate(-135deg);
-  /* box-shadow: 2.5px -2.5px 0 black; */
-  border: solid #A9A9A9;
-  border-width: 0 3px 3px 0;
-  right: -89%;
-}
-
-.scroll-up {
-  transform: rotate(-135deg);
-  margin-top: 7px;
-}
-
-.scroll-down {
+  border-style: solid;
+  border-color: #A9A9A9;
+  border-width: 0 4px 4px 0;
   transform: rotate(45deg);
-  margin-bottom: 7px;
+  /* margin-top: 5%; */
+  border-radius: 5%;
+  /* animation: underarrow .7s ease-in-out infinite;
+  -webkit-animation: underarrow .7s ease-in-out infinite; */
 }
 
 /* 
@@ -126,7 +126,7 @@ main {
   grid-template-areas: 
     "intro intro intro"
     "pre main suf"
-    ". arrow ."
+    ". . ."
   ;
 }
 
@@ -217,23 +217,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding-bottom: 30px;
-}
-
-.main-scroll-arrow {
-  display: none;
-  /* width: 40px;
-  height: 40px; */
-  width: 20px;
-  height: 20px;
-  border-style: solid;
-  border-color: #A9A9A9;
-  border-width: 0 4px 4px 0;
-  transform: rotate(45deg);
-  margin-top: 5%;
-  border-radius: 5%;
-  animation: underarrow .7s ease-in-out infinite;
-  -webkit-animation: underarrow .7s ease-in-out infinite;
+  padding-bottom: 60px;
 }
 
 /* 
@@ -264,28 +248,27 @@ ul {
 
 .intro1 {
   grid-area: intro1;
-  grid-column: 2 / span 1;
-  grid-row: 1 / span 1;
+  /* grid-column: 2 / span 1;
+  grid-row: 1 / span 1; */
 }
 
 .list1 {
-  
   grid-area: list1;
-  grid-column: 2 / span 1;
-  grid-row: 2/ span 1;
+  /* grid-column: 2 / span 1;
+  grid-row: 2/ span 1; */
   opacity: 0;
 }
 
 .intro2 {
   grid-area: intro2;
-  grid-column: 2 / span 1;
-  grid-row: 3 / span 1;
+  /* grid-column: 2 / span 1;
+  grid-row: 3 / span 1; */
 }
 
 .list2 {
   grid-area: list2;
-  grid-column: 2 / span 1;
-  grid-row: 4/ span 1;
+  /* grid-column: 2 / span 1;
+  grid-row: 4/ span 1; */
   opacity: 0;
 }
 
@@ -329,7 +312,8 @@ ul {
   display: grid;
   height: 100vh;
   grid-template-columns: 1fr 10fr 1fr;
-  grid-template-rows: 1fr 3fr 1fr;
+  /* grid-template-rows: 1fr 3fr 1fr; */
+  grid-template-rows: 50px auto 60px;
   grid-template-areas: 
     ". intro ."
     ". main ."
@@ -343,10 +327,11 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 .project-intro {
+  padding-top: 50px;
   grid-area: intro;
 }
 
@@ -373,16 +358,16 @@ ul {
     "thumbnail"
     "detail"
   ;
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: 900;
 }
 
 .thumbnail {
   grid-area: thumbnail;
-  width: 400px;
-  height: 250px;
-  /* width: 38vw;
-  height: 35vh; */
+  /* width: 400px;
+  height: 250px; */
+  width: 33vw;
+  height: 35vh;
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -601,6 +586,52 @@ ul {
 }
 
 @-webkit-keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.arrow-fade-in {
+  animation: arrow-fadein 0.3s ease-in forwards;
+  -webkit-animation: arrow-fadein 0.3s ease-in forwards;
+}
+
+.arrow-fade-out {
+  animation: arrow-fadeout 0.2s linear forwards;
+  -webkit-animation: arrow-fadeout 0.2s linear forwards;
+}
+
+@keyframes arrow-fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes arrow-fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes arrow-fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes arrow-fadeout {
   from {
     opacity: 1;
   }

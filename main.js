@@ -27,6 +27,16 @@ let showList1 = false;
 let showList2 = false;
 let isDesktop = true;
 
+let checkDevice = () => {
+  if(window.innerWidth <= 1024 && isDesktop) { 
+    isDesktop = false;
+  } else if(window.innerWidth > 1024 && !isDesktop) {
+    isDesktop = true;
+  }
+}
+
+checkDevice();
+
 let showThumbnail = (txt1, txt2, targetEl, invisibleEl) => {
 
   const containerDiv = document.createElement('div');
@@ -100,26 +110,55 @@ document.querySelector('.jun').addEventListener('mouseout', mouseoutFunc);
 
 
 const bodyAnimation = (progress) => {
-  if (progress > 10 && !showList1) { // 나에 대한 소개 두 번째 class = list1
-    list1Section.addClass('slide-fade-in');
-    profileSection.addClass('fade-in');
-  } else if(progress < 9){
-    list1Section.removeClass('slide-fade-in');
-    profileSection.removeClass('fade-in');
-  }
+  if(isDesktop) {
+    if (progress > 10 && !showList1) { // 나에 대한 소개 두 번째 class = list1
+      list1Section.addClass('slide-fade-in');
+      profileSection.addClass('fade-in');
+    } else if(progress < 9){
+      list1Section.removeClass('slide-fade-in');
+      profileSection.removeClass('fade-in');
+    }
 
-  if (progress > 20 && !showList2) { // 나에 대한 소개 두 번째 class = list2
-    list2Section.addClass('slide-fade-in');
-  } else if(progress < 20){
-    list2Section.removeClass('slide-fade-in');
-  }
+    if (progress > 20 && !showList2) { // 나에 대한 소개 두 번째 class = list2
+      list2Section.addClass('slide-fade-in');
+    } else if(progress < 20){
+      list2Section.removeClass('slide-fade-in');
+    }
 
-  if(progress > 56 && progress < 62) {
-    projectsSection.addClass('black-background');
-    projectsSection.removeClass('white-background');
+    if(progress > 56 && progress < 62) {
+      projectsSection.addClass('black-background');
+      projectsSection.removeClass('white-background');
+    } else {
+      projectsSection.addClass('white-background');
+      projectsSection.removeClass('black-background');
+    }
   } else {
-    projectsSection.addClass('white-background');
-    projectsSection.removeClass('black-background');
+    
+    if(progress > 11) {
+      profileSection.addClass('fade-in');
+    } else if(progress < 9) {
+      profileSection.removeClass('fade-in');
+    }
+
+    if (progress > 23 && !showList1) { // 나에 대한 소개 두 번째 class = list1
+      list1Section.addClass('slide-fade-in');
+    } else if(progress < 15){
+      list1Section.removeClass('slide-fade-in');
+    }
+
+    if (progress > 33 && !showList2) { // 나에 대한 소개 두 번째 class = list2
+      list2Section.addClass('slide-fade-in');
+    } else if(progress < 23){
+      list2Section.removeClass('slide-fade-in');
+    }
+
+    if(progress > 53 && progress < 75) {
+      projectsSection.addClass('black-background');
+      projectsSection.removeClass('white-background');
+    } else {
+      projectsSection.addClass('white-background');
+      projectsSection.removeClass('black-background');
+    }
   }
 }
 
@@ -193,9 +232,5 @@ projects.forEach((el) => {
 });
 
 window.onresize = () => {
-  if(window.innerWidth <= 1024 && isDesktop) { 
-    isDesktop = false;
-  } else if(window.innerWidth > 1024 && !isDesktop) {
-    isDesktop = true;
-  }
+  checkDevice();
 }
