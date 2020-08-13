@@ -28,7 +28,7 @@
     display: none;
   }
   .main-scroll-arrow {
-    display: inline;
+    display: flex;
   }
   #about {
     grid-template-columns: 1fr 320px 1fr;
@@ -41,7 +41,7 @@
     ". list2 ."
     ;
     height: 180vh;
-    width: 100vw;
+    width: 100%;
   }
 
   .profile-image {
@@ -76,7 +76,7 @@
   }
 
   #projects {
-    height: 180vh;
+    height: 160vh;
   }
 
   .project-main ul {
@@ -89,8 +89,7 @@
     flex-direction: column;
   }
 
-  .thumbnail-detail,
-  .modurun-thumbnail {
+  .thumbnail-detail {
     display: flex;
     text-align: center;
   }
@@ -98,6 +97,8 @@
   .modurun-thumbnail,
   .zeroto66-thumbnail {
     font-size: 50px;
+    padding: 10px 0 0 0;
+    margin: 0;
   }
 
   .thumbnail-detail {
@@ -151,5 +152,9 @@
   .hyun {
     color: #EA0037;
     /* color: #00C322; */
+  }
+  .thumbnail {
+    width: 52vw;
+    height: calc(52vw * 0.625);
   }
 }
