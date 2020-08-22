@@ -125,7 +125,7 @@ const bodyAnimation = (progress) => {
       list2Section.removeClass('slide-fade-in');
     }
 
-    if(progress > 56 && progress < 62) {
+    if(progress > 52 && progress < 64) {
       projectsSection.addClass('black-background');
       projectsSection.removeClass('white-background');
     } else {

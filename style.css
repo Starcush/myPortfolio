@@ -273,15 +273,12 @@ ul {
   opacity: 0;
   display: flex;
   justify-content: center;
-  padding-top: 10%;
   grid-area: profile;
 }
 
 .profile-image img {
-  /* height: 60rem;
-  width: 40rem; */
-  height: 63vh;
-  width: 30vw;
+  height: 77vh;
+  width: 55vh;
   border-radius: 10%;
 }
 
@@ -290,7 +287,8 @@ ul {
   align-items: flex-end;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 900;
-  font-size: 3rem;
+  /* font-size: 3rem; */
+  font-size: 3.7vh;
   margin-bottom: 10px;
 }
 
@@ -298,7 +296,8 @@ ul {
   font-family: 'Noto Sans KR', sans-serif;
   margin-bottom: 20px;
   font-weight: 500;
-  font-size: 2.5rem;
+  /* font-size: 2.5rem; */
+  font-size: 3.2vh;
 }
 
 /* 
@@ -312,7 +311,7 @@ ul {
   height: 100vh;
   width: 100%;
   grid-template-columns: 1fr 10fr 1fr;
-  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 5fr 1fr;
   /* grid-template-rows: 50px auto 60px; */
   grid-template-areas: 
     ". intro ."
@@ -327,7 +326,7 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 4rem;
+  font-size: 5vh;
 }
 
 .project-intro {
@@ -337,11 +336,14 @@ ul {
 
 .project-main {
   grid-area: main;
+  height: 100%;
 }
 
 .project-main ul{
   display: flex;
-  padding: 40px;
+  /* padding: 40px; */
+  padding: 4.2vh;
+  height: 90%;
   margin: 0;
   border-radius: 10px;
   background-color: #FFFFFF;
@@ -358,6 +360,7 @@ ul {
     "thumbnail"
     "detail"
   ;
+  gap: 15px;
   /* width: 400px;
   height: 250px; */
   font-size: 5rem;
@@ -367,7 +370,9 @@ ul {
 .thumbnail {
   grid-area: thumbnail;
   width: 400px;
-  height: 250px;
+  /* height: 250px; */
+  height: 35vh;
+  max-height: 250px;
   /* padding-top: 250px / 400px * 100%; */
   /* width: 33vw;
   height: 35vh; */
@@ -399,10 +404,11 @@ ul {
 
 .detail {
   grid-area: detail;
+  /* height: 12.8vh; */
   font-size: 18px;
   font-weight: 400;
   text-align: center;
-  margin-top: 5px;
+  /* margin-top: 5px; */
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, 1fr);
