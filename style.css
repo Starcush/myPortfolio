@@ -7,7 +7,6 @@
   font-family: 'Noto Sans KR', sans-serif;
   padding: 0;
   box-sizing: border-box;
-  /* border: 0; */
 }
 
 html {
@@ -64,15 +63,13 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* width: 50px; */
-  /* height: 40px; */
   margin-right: 1.1vw;
 }
 
 .nav-list {
   color: #A9A9A9;
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 2.3rem;
 }
 
 .navigation-bar ul li a:hover {
@@ -106,8 +103,6 @@ nav {
   border-width: 0 4px 4px 0;
   transform: rotate(45deg);
   border-radius: 5%;
-  /* animation: underarrow .7s ease-in-out infinite;
-  -webkit-animation: underarrow .7s ease-in-out infinite; */
 }
 
 /* 
@@ -248,7 +243,7 @@ main {
 
 ul {
   list-style: none;
-  padding-left: 25px;
+  /* padding-left: 25px; */
 }
 
 .intro1 {
@@ -269,7 +264,18 @@ ul {
   opacity: 0;
 }
 
+.intro1,
+.intro2 {
+  padding-left: 5vw;
+}
+
+.list1,
+.list2 {
+  padding-left: 6vw;
+}
+
 .profile-image{
+  padding-top: 10%;
   opacity: 0;
   display: flex;
   justify-content: center;
@@ -277,8 +283,10 @@ ul {
 }
 
 .profile-image img {
-  height: 77vh;
-  width: 55vh;
+  height: 70vh;
+  width: 50vh;
+  max-width: 350px;
+  max-height: 490px;
   border-radius: 10%;
 }
 
@@ -287,8 +295,8 @@ ul {
   align-items: flex-end;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 900;
-  /* font-size: 3rem; */
-  font-size: 3.7vh;
+  font-size: 3rem;
+  /* font-size: 3.7vh; */
   margin-bottom: 10px;
 }
 
@@ -296,8 +304,8 @@ ul {
   font-family: 'Noto Sans KR', sans-serif;
   margin-bottom: 20px;
   font-weight: 500;
-  /* font-size: 2.5rem; */
-  font-size: 3.2vh;
+  font-size: 2.6rem;
+  /* font-size: 3.2vh; */
 }
 
 /* 
@@ -311,7 +319,7 @@ ul {
   height: 100vh;
   width: 100%;
   grid-template-columns: 1fr 10fr 1fr;
-  grid-template-rows: 1fr 5fr 1fr;
+  grid-template-rows: 2fr 5fr 2fr;
   /* grid-template-rows: 50px auto 60px; */
   grid-template-areas: 
     ". intro ."
@@ -326,12 +334,13 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 5vh;
+  font-size: 4rem;
+  margin: 0;
 }
 
 .project-intro {
-  /* padding-top: 50px; */
   grid-area: intro;
+  padding-top: 10px;
 }
 
 .project-main {
@@ -341,7 +350,6 @@ ul {
 
 .project-main ul{
   display: flex;
-  /* padding: 40px; */
   padding: 4.2vh;
   height: 90%;
   margin: 0;
@@ -351,6 +359,7 @@ ul {
 
 .project-finish {
   grid-area: finish;
+  padding-bottom: 10px;
 }
 
 .project-items {
@@ -360,9 +369,7 @@ ul {
     "thumbnail"
     "detail"
   ;
-  gap: 15px;
-  /* width: 400px;
-  height: 250px; */
+  /* gap: 15px; */
   font-size: 5rem;
   font-weight: 900;
 }
@@ -370,12 +377,8 @@ ul {
 .thumbnail {
   grid-area: thumbnail;
   width: 400px;
-  /* height: 250px; */
-  height: 35vh;
+  height: 37vh;
   max-height: 250px;
-  /* padding-top: 250px / 400px * 100%; */
-  /* width: 33vw;
-  height: 35vh; */
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -404,11 +407,9 @@ ul {
 
 .detail {
   grid-area: detail;
-  /* height: 12.8vh; */
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 400;
   text-align: center;
-  /* margin-top: 5px; */
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -532,7 +533,6 @@ ul {
 .txt li {
   font-family: 'Noto Sans', sans-serif;
   font-weight: 600;
-  font-size: 1.8rem;
   color: #000000;
 }
 
