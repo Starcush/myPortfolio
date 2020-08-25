@@ -170,16 +170,6 @@ main {
   -webkit-animation: slidetext .7s ease-in-out infinite;  
 }
 
-.click-arrow {
-  width: 2rem;
-  height: 2rem;
-  box-shadow: -2px 2px 0 rgba(255, 255, 255, .5);
-  transform: rotate(225deg);
-  margin-top: 5%;
-  animation: rotatedarrow .7s ease-in-out infinite;
-  -webkit-animation: rotatedarrow .7s ease-in-out infinite;
-}
-
 .suffix {
   grid-area: suf;
 }
@@ -280,6 +270,7 @@ ul {
   display: flex;
   justify-content: center;
   grid-area: profile;
+  pointer-events: none;
 }
 
 .profile-image img {
@@ -560,11 +551,15 @@ ul {
 .fade-in {
   animation: fadein 0.5s ease-in forwards;
   -webkit-animation: fadein 0.5s ease-in forwards;
+  -moz-animation: fadein 0.5s ease-in forwards;
+  -o-animation: fadein 0.5s ease-in forwards;
 }
 
 .fade-out {
   animation: fadeout 0.3s linear forwards;
   -webkit-animation: fadeout 0.3s linear forwards;
+  -moz-animation: fadeout 0.3s linear forwards;
+  -o-animation: fadeout 0.3s linear forwards;
 }
 
 @keyframes fadein {
@@ -577,6 +572,24 @@ ul {
 }
 
 @-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
   from {
     opacity: 0;
   }
@@ -603,14 +616,36 @@ ul {
   }
 }
 
+@-moz-keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .arrow-fade-in {
   animation: arrow-fadein 0.3s ease-in forwards;
   -webkit-animation: arrow-fadein 0.3s ease-in forwards;
+  -moz-animation: arrow-fadein 0.3s ease-in forwards;
+  -o-animation: arrow-fadein 0.3s ease-in forwards;
 }
 
 .arrow-fade-out {
   animation: arrow-fadeout 0.2s linear forwards;
   -webkit-animation: arrow-fadeout 0.2s linear forwards;
+  -moz-animation: arrow-fadeout 0.2s linear forwards;
+  -o-animation: arrow-fadeout 0.2s linear forwards;
 }
 
 @keyframes arrow-fadein {
@@ -623,6 +658,24 @@ ul {
 }
 
 @-webkit-keyframes arrow-fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes arrow-fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes arrow-fadein {
   from {
     opacity: 0;
   }
@@ -649,6 +702,24 @@ ul {
   }
 }
 
+@-moz-keyframes arrow-fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes arrow-fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .hide {
   display: none;
 }
@@ -660,6 +731,8 @@ ul {
 .white-background {
   animation: towhite 0.4s ease-out forwards;
   -webkit-animation: towhite 0.4s ease-out forwards;
+  -moz-animation: towhite 0.4s ease-out forwards;
+  -o-animation: towhite 0.4s ease-out forwards;
 }
 
 @keyframes towhite {
@@ -682,9 +755,31 @@ ul {
   }
 }
 
+@-moz-keyframes towhite {
+  from {
+    background-color: #000000;
+  }
+
+  to {
+    background-color: #FFFFFF;
+  }
+}
+
+@-o-keyframes towhite {
+  from {
+    background-color: #000000;
+  }
+
+  to {
+    background-color: #FFFFFF;
+  }
+}
+
 .black-background {
   animation: toblack 0.4s ease-out forwards;
   -webkit-animation: toblack 0.4s ease-out forwards;
+  -moz-animation: toblack 0.4s ease-out forwards;
+  -o-animation: toblack 0.4s ease-out forwards;
 }
 
 @keyframes toblack {
@@ -708,9 +803,33 @@ ul {
 
 }
 
+@-moz-keyframes toblack {
+  from {
+    background-color: #FFFFFF;
+  }
+
+  to {
+    background-color: #000000;
+  }
+
+}
+
+@-o-keyframes toblack {
+  from {
+    background-color: #FFFFFF;
+  }
+
+  to {
+    background-color: #000000;
+  }
+
+}
+
 .slide-fade-in {
   animation: slidein 0.4s ease-out forwards, fadein 0.4s ease-out forwards;
   -webkit-animation: slidein 0.4s ease-out forwards, fadein 0.4s ease-out forwards;
+  -moz-animation: slidein 0.4s ease-out forwards, fadein 0.4s ease-out forwards;
+  -o-animation: slidein 0.4s ease-out forwards, fadein 0.4s ease-out forwards;
 }
 
 @keyframes slidein {
@@ -723,25 +842,33 @@ ul {
   }
 }
 
-@keyframes rotatedarrow {
-  0%,
-  100% {
-    transform: translate(0, 0) rotate(225deg);
+@-webkit-keyframes slidein {
+  from {
+    transform: translateX(-50px);
   }
 
-  50% {
-    transform: translate(10px, 0) rotate(225deg);
+  to {
+    transform: translateX(0);
   }
 }
 
-@-webkit-keyframes rotatedarrow {
-  0%,
-  100% {
-    transform: translate(0, 0) rotate(225deg);
+@-moz-keyframes slidein {
+  from {
+    transform: translateX(-50px);
   }
 
-  50% {
-    transform: translate(10px, 0) rotate(225deg);
+  to {
+    transform: translateX(0);
+  }
+}
+
+@-o-keyframes slidein {
+  from {
+    transform: translateX(-50px);
+  }
+
+  to {
+    transform: translateX(0);
   }
 }
 
@@ -757,6 +884,28 @@ ul {
 }
 
 @-webkit-keyframes slidetext {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(10px, 0);
+  }
+}
+
+@-moz-keyframes slidetext {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(10px, 0);
+  }
+}
+
+@-o-keyframes slidetext {
   0%,
   100% {
     transform: translate(0, 0);
@@ -789,24 +938,24 @@ ul {
   }
 }
 
-@keyframes underarrow {
+@-moz-keyframes miniarrow {
   0%,
   100% {
-    transform: translate(0, 0) rotate(45deg);
+    transform: translate(0, 0) rotate(-45deg);
   }
 
   50% {
-    transform: translate(0, -10px) rotate(45deg);
+    transform: translate(5px, 0) rotate(-45deg);
   }
 }
 
-@-webkit-keyframes underarrow {
+@-o-keyframes miniarrow {
   0%,
   100% {
-    transform: translate(0, 0) rotate(45deg);
+    transform: translate(0, 0) rotate(-45deg);
   }
 
   50% {
-    transform: translate(0, -10px) rotate(45deg);
+    transform: translate(5px, 0) rotate(-45deg);
   }
 }
