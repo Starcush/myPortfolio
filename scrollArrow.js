@@ -1,15 +1,7 @@
-// import { findClassName } from './modules.js';
-
 const mainPageArrow = document.querySelector('.main-scroll-arrow');
-// const pageUpArrow = document.querySelector('.scroll-up');
-// const pageDownArrow = document.querySelector('.scroll-down');
-// const arrowDiv = document.querySelector('.scroll-arrow-area');
 
 const introLocation = document.querySelector('#about').offsetTop;
-// const projectLocation = document.querySelector('#projects').offsetTop;
-// const contactLocation = document.querySelector('#contact').offsetTop;
 
-// const arrows = [mainPageArrow];
 
 let initialPosition = window.scrollY;
 let visible = true;
@@ -35,16 +27,16 @@ const arrowScrollEvent = (e) => {
   }
 }
 
-const arrowFadeEvent = (scrollPosition) => {
-  if(scrollPosition > 2 && scrollPosition < 79 && visible) {
+const arrowFadeEvent = (scrollPosition, bottom) => {
+  if(scrollPosition > 2 && !bottom && visible) {
     visible = false;
     mainPageArrow.classList.add('arrow-fade-out');
     mainPageArrow.classList.remove('arrow-fade-in');
 
   } else if(!visible) {
-    if(scrollPosition > 79 || scrollPosition < 2) {
+    if(bottom || scrollPosition < 2) {
       mainPageArrow.style.display = 'flex';
-      let rotate = scrollPosition > 79 ? 'transform: rotate(-135deg);' : 'transform: rotate(45deg);';
+      let rotate = bottom ? 'transform: rotate(-135deg);' : 'transform: rotate(45deg);';
       visible = true;
       mainPageArrow.classList.remove('arrow-fade-out');
       mainPageArrow.classList.add('arrow-fade-in');
@@ -55,13 +47,20 @@ const arrowFadeEvent = (scrollPosition) => {
 
 let ticking = false;
 let curPosition;
+let bottom = false;
 
 window.addEventListener("scroll", function() {
   curPosition = (window.pageYOffset / document.body.offsetHeight) * 100;
+  
+  if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
+    bottom = true;
+  } else {
+    bottom = false;
+  }
 
   if (!ticking) {
     window.requestAnimationFrame(function() {
-      arrowFadeEvent(curPosition);
+      arrowFadeEvent(curPosition, bottom);
       ticking = false;
     });
     ticking = true;

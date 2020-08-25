@@ -221,10 +221,6 @@ let projectsMouseleave = (event) => {
   removeAllEl('newDiv');
 }
 
-if(!isDesktop) { // desktop이 아닐 경우 프로젝트 부분이 변경되어야 한다.
-
-}
-
 const projects = Array.from(document.getElementsByClassName('thumbnail'));
 projects.forEach((el) => {
   el.addEventListener('mouseenter', projectsMouseenter, true);
