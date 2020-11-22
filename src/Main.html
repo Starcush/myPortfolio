@@ -13,17 +13,14 @@
       <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet"/>
       <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet"/>
       <link rel="shortcut icon" href="https://www.starcushwa.com/assets/portfolio_favicon.png" type="image/x-icon">
-      <link rel="stylesheet" href="style.css">
-      <link rel="stylesheet" href="mediaquery.css">
+      <!-- <link rel="stylesheet" href="./css/style.css">
+      <link rel="stylesheet" href="./css/mediaquery.css"> -->
       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
       <script src="https://unpkg.com/vuex"></script>
       <title>조준현의 포트폴리오</title>
   </head>
   <body>
-    <h1>Vue</h1>
-    <div id="vapp">
-      <p>Hello World {{ display }} </p>
-    </div>
+    <div id="root"></div>
     <main> <!-- 메인 페이지 -->
       <div id="home">
         <div class="home-intro gray-text">
@@ -175,17 +172,8 @@
       </div>
     </footer>
 
-    <script>
-      const vueApp = new Vue({
-        el: '#vapp',
-        data: {
-          display: 'redbox'
-        }
-      })
-    </script>
-
-    <script type="module" src="main.js"></script>
-    <script type="module" src="animation.js"></script>
-    <script type="module" src="scrollArrow.js"></script>
+    <!-- <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/animation.js"></script>
+    <script type="module" src="./js/scrollArrow.js"></script> -->
   </body>
 </html>
